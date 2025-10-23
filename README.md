@@ -1,0 +1,1 @@
+# QuickSpot_frontend
