@@ -9,6 +9,7 @@ import Register from "./pages/Register"
 import Profile from "./pages/Profile"
 
 import "./App.css"
+import JobForm from "./pages/Form"
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -51,6 +52,7 @@ const App = () => {
           <Route path="/register" element={<Register />} />
           <Route path="/signin" element={<SignIn setUser={setUser} />} />
           <Route path="/profile" element={<Profile user={user} />} />
+          <Route path="/jobForm" element={<JobForm user={user} />} />
         </Routes>
       </main>
     </>
