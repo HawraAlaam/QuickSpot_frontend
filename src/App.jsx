@@ -3,7 +3,9 @@ import { Routes, Route } from "react-router-dom"
 import "./App.css"
 import Profile from "./pages/Profile"
 import Nav from "./components/Nav"
-import Home from "./pages/Home"
+import Welcome from "./pages/Welcome"
+import Register from "./pages/Register"
+import SignIn from "./pages/SignIn"
 
 const App = () => {
   const [user, setUser] = useState(null)
