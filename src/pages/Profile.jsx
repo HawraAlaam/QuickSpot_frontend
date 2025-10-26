@@ -1,15 +1,14 @@
-import { useEffect } from "react"
-
-const Profile = ({ user }) => {
-  useEffect(() => {})
+const Profile = ({ user, setUser }) => {
+  console.log(user)
 
   return user ? (
     <div>
-      <img src="" alt="" />
-      <h4>First Name:</h4>
-      <h4>Last Name:</h4>
-      <h4>Email:</h4>
-      <h4>Bio:</h4>{" "}
+      <h4>First Name: {user.firstName} </h4>
+      <h4>Last Name: {user.lastName}</h4>
+      <h4>Email: {user.email} </h4>
+      <h4>Mobile: {user.mobileNumber} </h4>
+      <h4>Bio: {user.bio} </h4>
+      <button></button>
     </div>
   ) : (
     <h1>No User</h1>
