@@ -9,8 +9,8 @@ const JobForm = () => {
     title: '',
     salary: 0,
     date: '',
-    timeFrom: '',
-    timeTo: '',
+    from: '',
+    to: '',
     description: '',
     location: ''
   }
@@ -27,7 +27,7 @@ const JobForm = () => {
     const response = await Client.post("/jobs", formValue)
     setJob(response.data)
     setFormValue(initialState)
-    // navigate(`/${response.data._id}`)
+    navigate(`/jobs/${response.data._id}`)
   }
 
   return (

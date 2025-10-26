@@ -7,6 +7,8 @@ import Welcome from "./pages/Welcome"
 import SignIn from "./pages/Signin"
 import Register from "./pages/Register"
 import Profile from "./pages/Profile"
+import Home from "./pages/Home"
+import JobDetails from "./pages/JobDeatails"
 
 import "./App.css"
 import JobForm from "./pages/Form"
@@ -52,7 +54,9 @@ const App = () => {
           <Route path="/register" element={<Register />} />
           <Route path="/signin" element={<SignIn setUser={setUser} />} />
           <Route path="/profile" element={<Profile user={user} />} />
+          <Route path="/home" element={<Home />}/>
           <Route path="/jobForm" element={<JobForm user={user} />} />
+          <Route path="/jobs/:id" element={<JobDetails />} />
         </Routes>
       </main>
     </>
