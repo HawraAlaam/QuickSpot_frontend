@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
+import { Link } from "react-router-dom"
 import Client from "../services/api"
 
 const JobDetails = () => {
@@ -32,6 +33,9 @@ const JobDetails = () => {
       {job.owner && (
         <p><strong>Posted by:</strong> {job.owner.name || job.owner.email}</p>
       )}
+      
+      <Link to={"/home"}> Back </Link>
+
     </div>
   )
 }
