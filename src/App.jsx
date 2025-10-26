@@ -1,3 +1,18 @@
+import { useEffect, useState } from "react"
+import { Routes, Route } from "react-router-dom"
+import "./App.css"
+import Profile from "./pages/Profile"
+import Nav from "./components/Nav"
+import Home from "./pages/Home"
+
+const App = () => {
+  const [user, setUser] = useState(null)
+
+  const handleLogOut = () => {
+    setUser(null)
+    localStorage.clear()
+  }
+
 import Home from "./pages/Home"
 import Register from "./components/pages/Register"
 import { useState, useEffect } from "react"
