@@ -7,17 +7,10 @@ import { CheckSession } from "./services/Auth"
 import Nav from "./components/Nav"
 import Welcome from "./pages/Welcome"
 import SignIn from "./pages/Signin"
-import './App.css'
-
+import "./App.css"
 
 const App = () => {
-    const [user, setUser] = useState(null)
-
-  const handleLogOut = () => {
-    setUser(null)
-    localStorage.clear()
-  }
-
+  const [user, setUser] = useState(null)
   useEffect(() => {
     const checkToken = async () => {
       //If a token exists, sends token to localStorage to persist logged in user
@@ -30,7 +23,6 @@ const App = () => {
       checkToken()
     }
   }, [])
-
 
   const handleLogOut = () => {
     setUser(null)
@@ -55,14 +47,12 @@ const App = () => {
       <main>
         <Routes>
           <Route path="/" element={<Welcome />} />
-             <Route path="/register" element={<Register />} />
+          <Route path="/register" element={<Register />} />
           <Route path="/signin" element={<SignIn setUser={setUser} />} />
-
         </Routes>
       </main>
     </>
   )
 }
-
 
 export default App
