@@ -5,7 +5,7 @@ import { CheckSession } from "./services/Auth"
 import Nav from "./components/Nav"
 import Welcome from "./pages/Welcome"
 import SignIn from "./pages/Signin"
-import Register from "./components/pages/Register"
+import Register from "./pages/Register"
 import Profile from "./pages/Profile"
 
 import "./App.css"

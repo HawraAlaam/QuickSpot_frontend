@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { RegisterUser } from "../../services/Auth"
+import { RegisterUser } from "../services/Auth.js"
 
 const Register = () => {
   let navigate = useNavigate()
@@ -102,9 +102,8 @@ const Register = () => {
             !formValues.lastName ||
             !formValues.email ||
             !formValues.mobileNumber ||
-
-            (!formValues.password ||
-            formValues.password !== formValues.confirmPassword) ||
+            !formValues.password ||
+            formValues.password !== formValues.confirmPassword ||
             formValues.password.length < 8
           }
         >
