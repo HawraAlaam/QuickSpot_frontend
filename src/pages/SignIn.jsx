@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { SignInUser } from '../services/Auth'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 
 const SignIn = ({setUser}) => {
   let navigate = useNavigate()
@@ -17,7 +17,7 @@ const SignIn = ({setUser}) => {
     const userData = await SignInUser(formValues)
     setFormValues(initialState)
     setUser(userData)
-    navigate('/')
+    navigate('/home')
   }
 
   return (
@@ -53,7 +53,9 @@ const SignIn = ({setUser}) => {
         </button>
       </form>
       <div>
-        <h4>Don't have an account? </h4>
+        <h4> Don't have an account?
+           <Link to={"/register"}>Sign Up </Link>
+        </h4>
       </div>
     </div>
   )

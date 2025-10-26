@@ -7,9 +7,12 @@ import Welcome from "./pages/Welcome"
 import SignIn from "./pages/Signin"
 import Register from "./pages/Register"
 import Profile from "./pages/Profile"
+import Home from "./pages/Home"
+import JobDetails from "./pages/JobDeatails"
+import JobList from "./pages/JobListings"
+import JobForm from "./pages/Form"
 
 import "./App.css"
-import JobForm from "./pages/Form"
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -30,19 +33,7 @@ const App = () => {
     setUser(null)
     localStorage.clear()
   }
-
-  useEffect(() => {
-    const checkToken = async () => {
-      //If a token exists, sends token to localStorage to persist logged in user
-      const userData = await CheckSession()
-      setUser(userData)
-    }
-    const token = localStorage.getItem("token")
-    // Check if token exists before requesting to validate the token
-    if (token) {
-      checkToken()
-    }
-  }, [])
+  
   return (
     <>
       <Nav user={user} handleLogOut={handleLogOut} />
@@ -52,7 +43,10 @@ const App = () => {
           <Route path="/register" element={<Register />} />
           <Route path="/signin" element={<SignIn setUser={setUser} />} />
           <Route path="/profile" element={<Profile user={user} />} />
+          <Route path="/home" element={<Home />}/>
+          <Route path="/jobList" element={<JobList />} />
           <Route path="/jobForm" element={<JobForm user={user} />} />
+          <Route path="/jobs/:id" element={<JobDetails />} />
         </Routes>
       </main>
     </>
