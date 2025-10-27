@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import Client from '../services/api'
+import Client from "../services/api"
 import { Link } from "react-router-dom"
 
 const JobList = () => {
@@ -10,6 +10,7 @@ const JobList = () => {
       try {
         const res = await Client.get("/jobs")
         setJobs(res.data)
+        // console.log(res.data)
       } catch (error) {
         console.error("Error fetching jobs:", error)
       }
