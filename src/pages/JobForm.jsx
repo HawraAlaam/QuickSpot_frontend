@@ -1,18 +1,18 @@
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import Client from '../services/api'
+import { useState } from "react"
+import { useNavigate } from "react-router-dom"
+import Client from "../services/api"
 
 const JobForm = () => {
   let navigate = useNavigate()
 
   const initialState = {
-    title: '',
+    title: "",
     salary: 0,
-    date: '',
-    from: '',
-    to: '',
-    description: '',
-    location: ''
+    date: "",
+    from: "",
+    to: "",
+    description: "",
+    location: "",
   }
 
   const [formValue, setFormValue] = useState(initialState)
@@ -22,7 +22,7 @@ const JobForm = () => {
     setFormValue({ ...formValue, [event.target.name]: event.target.value })
   }
 
-   const handleSubmit = async (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault()
     const response = await Client.post("/jobs", formValue)
     setJob(response.data)
@@ -35,7 +35,6 @@ const JobForm = () => {
       <h2>Post job</h2>
 
       <form onSubmit={handleSubmit}>
-
         <label htmlFor="title">Title</label>
         <input
           type="text"
@@ -67,22 +66,22 @@ const JobForm = () => {
 
         <label htmlFor="timeFrom">Time</label>
         <div className="timeInputGroup">
-            <span>From:</span>
-            <input
-              type="time"
-              name="timeFrom"
-              value={formValue.timeFrom}
-              onChange={handleChange}
-              required
-            />
-            <span>To:</span>
-            <input
-              type="time"
-              name="timeTo"
-              value={formValue.timeTo}
-              onChange={handleChange}
-              required
-            />
+          <span>From:</span>
+          <input
+            type="time"
+            name="timeFrom"
+            value={formValue.timeFrom}
+            onChange={handleChange}
+            required
+          />
+          <span>To:</span>
+          <input
+            type="time"
+            name="timeTo"
+            value={formValue.timeTo}
+            onChange={handleChange}
+            required
+          />
         </div>
 
         <label htmlFor="location">Location</label>

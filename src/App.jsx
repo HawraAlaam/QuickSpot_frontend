@@ -10,10 +10,13 @@ import Profile from "./pages/Profile"
 import Home from "./pages/Home"
 import JobDetails from "./pages/JobDeatails"
 import JobList from "./pages/JobListings"
+
 import JobForm from "./pages/Form"
 import PlaceList from "./pages/PlaceListing"
 
+
 import "./App.css"
+import PlaceForm from "./pages/PlaceForm"
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -49,6 +52,7 @@ const App = () => {
           <Route path="/jobForm" element={<JobForm user={user} />} />
           <Route path="/jobs/:id" element={<JobDetails />} />
           <Route path="/placeList" element={<PlaceList />} />
+          <Route path="/placeForm" element={<PlaceForm user={user} />} />
         </Routes>
       </main>
     </>
