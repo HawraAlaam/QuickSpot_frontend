@@ -10,6 +10,7 @@ import Profile from "./pages/Profile"
 
 import "./App.css"
 import EditProfile from "./pages/EditProfile"
+import EditPassword from "./pages/EditPassword"
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -47,6 +48,7 @@ const App = () => {
             path="/profile/edit/:id"
             element={<EditProfile user={user} setUser={setUser} />}
           />
+          <Route path="/auth/update/:id" element={<EditPassword />} />
         </Routes>
       </main>
     </>
