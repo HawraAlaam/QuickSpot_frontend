@@ -11,9 +11,8 @@ import Home from "./pages/Home"
 import JobDetails from "./pages/JobDeatails"
 import JobList from "./pages/JobListings"
 
-import JobForm from "./pages/Form"
+import JobForm from "./pages/JobForm"
 import PlaceList from "./pages/PlaceListing"
-
 
 import "./App.css"
 import PlaceForm from "./pages/PlaceForm"
