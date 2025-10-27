@@ -9,6 +9,7 @@ import Register from "./pages/Register"
 import Profile from "./pages/Profile"
 
 import "./App.css"
+import EditProfile from "./pages/EditProfile"
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -30,18 +31,6 @@ const App = () => {
     localStorage.clear()
   }
 
-  useEffect(() => {
-    const checkToken = async () => {
-      //If a token exists, sends token to localStorage to persist logged in user
-      const userData = await CheckSession()
-      setUser(userData)
-    }
-    const token = localStorage.getItem("token")
-    // Check if token exists before requesting to validate the token
-    if (token) {
-      checkToken()
-    }
-  }, [])
   return (
     <>
       <Nav user={user} handleLogOut={handleLogOut} />
@@ -53,6 +42,10 @@ const App = () => {
           <Route
             path="/profile/:id"
             element={<Profile user={user} setUser={setUser} />}
+          />
+          <Route
+            path="/profile/edit/:id"
+            element={<EditProfile user={user} setUser={setUser} />}
           />
         </Routes>
       </main>
