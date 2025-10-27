@@ -14,6 +14,15 @@ const Home = () => {
         console.error("Error fetching jobs:", error)
       }
     }
+    const getPlaces = async () => {
+      try {
+        const response = await Client.get("/place")
+        setJobs(response.data.slice(0, 8))
+      } catch (error) {
+        console.error("Error fetching jobs:", error)
+      }
+    }
+    getPlaces()
     getJobs()
   }, [])
   return (
@@ -35,6 +44,9 @@ const Home = () => {
       </div>
       <div className="more-btn">
         <Link to="/jobs">See More Jobs</Link>
+      </div>
+      <div>
+        <Link to={"/placeForm"}>Add Place</Link>
       </div>
     </div>
   )

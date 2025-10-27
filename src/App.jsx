@@ -10,9 +10,10 @@ import Profile from "./pages/Profile"
 import Home from "./pages/Home"
 import JobDetails from "./pages/JobDeatails"
 import JobList from "./pages/JobListings"
-import JobForm from "./pages/Form"
+import JobForm from "./pages/JobForm"
 
 import "./App.css"
+import PlaceForm from "./pages/PlaceForm"
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -33,7 +34,7 @@ const App = () => {
     setUser(null)
     localStorage.clear()
   }
-  
+
   return (
     <>
       <Nav user={user} handleLogOut={handleLogOut} />
@@ -47,6 +48,7 @@ const App = () => {
           <Route path="/jobList" element={<JobList />} />
           <Route path="/jobForm" element={<JobForm user={user} />} />
           <Route path="/jobs/:id" element={<JobDetails />} />
+          <Route path="/placeForm" element={<PlaceForm user={user} />} />
         </Routes>
       </main>
     </>
