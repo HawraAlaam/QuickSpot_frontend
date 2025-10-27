@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import Client from "../services/api"
 
 const EditPassword = () => {
   const { id } = useParams()
   const [user, setUser] = useState([])
+  let navigate = useNavigate()
   const initialState = {
     oldPassword: "",
     newPassword: "",
@@ -32,6 +33,7 @@ const EditPassword = () => {
     })
     setUser(response.data)
     setFormValues(initialState)
+    navigate(`profile/edit/${id}`)
   }
 
   return (
