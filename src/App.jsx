@@ -11,6 +11,7 @@ import Home from "./pages/Home"
 import JobDetails from "./pages/JobDeatails"
 import JobList from "./pages/JobListings"
 import JobForm from "./pages/Form"
+import PlaceList from "./pages/PlaceListing"
 
 import "./App.css"
 
@@ -33,7 +34,7 @@ const App = () => {
     setUser(null)
     localStorage.clear()
   }
-  
+
   return (
     <>
       <Nav user={user} handleLogOut={handleLogOut} />
@@ -43,10 +44,11 @@ const App = () => {
           <Route path="/register" element={<Register />} />
           <Route path="/signin" element={<SignIn setUser={setUser} />} />
           <Route path="/profile" element={<Profile user={user} />} />
-          <Route path="/home" element={<Home />}/>
+          <Route path="/home" element={<Home />} />
           <Route path="/jobList" element={<JobList />} />
           <Route path="/jobForm" element={<JobForm user={user} />} />
           <Route path="/jobs/:id" element={<JobDetails />} />
+          <Route path="/placeList" element={<PlaceList />} />
         </Routes>
       </main>
     </>
