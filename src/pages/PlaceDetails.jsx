@@ -29,6 +29,16 @@ const PlaceDetails = () => {
     }
   }
 
+  const handleSubmit = async () => {
+    await Client.post(`/bookings`, {
+      place: place.name,
+      date: place.date,
+      from: place.from,
+      to: place.to,
+    })
+    navigate("/bookings")
+  }
+
   if (!place) return <p>Loading place details...</p>
 
   return (
@@ -60,6 +70,8 @@ const PlaceDetails = () => {
       <button onClick={handleDelete} className="deletePlace">
         Delete
       </button>
+
+      <button onClick={handleSubmit}>Book</button>
     </div>
   )
 }
