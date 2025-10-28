@@ -126,7 +126,7 @@ const Register = () => {
             !formValues.email ||
             !formValues.mobileNumber ||
             !formValues.password ||
-            formValues.password !== formValues.confirmPassword 
+            formValues.password !== formValues.confirmPassword
             // formValues.password.length < 8
           }
         >

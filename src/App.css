@@ -195,3 +195,116 @@ nav a[onClick]:hover {
     text-decoration: underline;
     color: #0C363C; /* Hover accent color */
 }
+
+/* ==================================== */
+/* 4. REGISTER PAGE STYLES              */
+/* ==================================== */
+
+/* Main Register Container (.register-container) */
+.register-container {
+    /* Aligns the form vertically in the center of the page (set by body styles) */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    /* Same width as the Sign In form for consistency */
+    max-width: 450px;
+    padding: 30px 20px;
+    text-align: center;
+
+    /* Slightly lower position than the Sign In form because it's taller */
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+/* Page Title */
+.register-container h2 {
+    font-size: 1.8em;
+    color: #0C363C;
+    margin-bottom: 30px;
+}
+
+/* Form Container */
+.register-container form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Space between inputs */
+}
+
+/* Input Fields (Text, Email, Password, Tel) */
+.register-container input[type="text"],
+.register-container input[type="email"],
+.register-container input[type="password"],
+.register-container input[type="tel"] {
+    width: 100%;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 4px;
+    background-color: #e0e0e0;
+    font-size: 1.1em;
+    color: #333;
+    box-sizing: border-box;
+}
+
+.register-container input::placeholder {
+    color: #777c90;
+}
+
+/* File Input (Upload Image) */
+.register-container input[type="file"] {
+    /* Style the actual file input button */
+    padding: 10px 0;
+    font-size: 1em;
+    color: #333;
+}
+
+/* Label for File Input */
+.register-container label[for="image"] {
+    display: block;
+    text-align: left;
+    font-size: 0.9em;
+    color: #555;
+    margin-bottom: -5px; /* Pull it closer to the input */
+}
+
+/* Confirm Button Style */
+.register-container button {
+    width: 100%;
+    padding: 12px;
+    background-color: #0C363C;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: 15px; /* Extra space above the button */
+}
+
+.register-container button:hover:not(:disabled) {
+    background-color: #0c363c; /* Use the same dark color on hover for simplicity */
+}
+
+.register-container button:disabled {
+    background-color: #a8a8a8;
+    cursor: not-allowed;
+}
+
+/* Already have an account prompt */
+.login-prompt {
+    margin-top: 20px;
+    font-size: 1.1em;
+    color: #333;
+}
+
+.login-prompt a {
+    color: #777c90; /* Gray link color */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.login-prompt a:hover {
+    text-decoration: underline;
+    color: #0C363C; /* Accent hover color */
+}
