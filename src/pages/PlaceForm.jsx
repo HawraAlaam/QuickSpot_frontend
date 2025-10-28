@@ -23,8 +23,15 @@ const PlaceForm = () => {
     setFormValue({ ...formValue, [event.target.name]: event.target.value })
   }
 
+   const handleImageChange = (event) => {
+    const files = Array.from(event.target.files)
+    setFormValue({ ...formValue, images: files })
+  }
+
   const handleSubmit = async (event) => {
     event.preventDefault()
+    //set item
+    //clear item
     const response = await Client.post("/place", formValue)
     console.log(response)
     setPlace(response.data)
@@ -104,7 +111,12 @@ const PlaceForm = () => {
           placeholder="Detailed place description..."
           required
         />
-
+        <label htmlFor="images">Images</label>
+        <input
+          type="file"
+          name="images"
+          onChange={handleImageChange}
+        />
         <button type="submit">Post</button>
       </form>
     </div>

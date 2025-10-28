@@ -13,17 +13,32 @@ const Register = () => {
     password: "",
     confirmPassword: "",
     mobileNumber: "",
+    image: "",
   }
 
   const [formValues, setFormValues] = useState(initialState)
 
   const handleChange = (e) => {
-    setFormValues({ ...formValues, [e.target.name]: e.target.value })
+    const { id, type, files, value } = e.target
+    setFormValues({
+      ...formValues,
+      [e.target.name]: e.target.value,
+      [id]: type === "file" ? files[0] : value,
+    })
   }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    await RegisterUser(formValues)
+    const formData = new FormData()
+    formData.append("firstName", formValues.firstName)
+    formData.append("lastName", formValues.lastName)
+    formData.append("email", formValues.email)
+    formData.append("password", formValues.password)
+    formData.append("image", formValues.image)
+    formData.append("bio", formValues.bio)
+    formData.append("mobileNumber", formValues.mobileNumber)
+
+    await RegisterUser(formData)
     setFormValues(initialState)
     navigate("/signin")
 
@@ -37,6 +52,13 @@ const Register = () => {
       <h2>Sign-Up</h2>
 
       <form onSubmit={handleSubmit}>
+        <label htmlFor="image">Upload Image:</label>
+        <input
+          type="file"
+          id="image"
+          accept="image/*"
+          onChange={handleChange}
+        />
         <input
           name="firstName"
           type="text"
@@ -104,8 +126,8 @@ const Register = () => {
             !formValues.email ||
             !formValues.mobileNumber ||
             !formValues.password ||
-            formValues.password !== formValues.confirmPassword ||
-            formValues.password.length < 8
+            formValues.password !== formValues.confirmPassword 
+            // formValues.password.length < 8
           }
         >
           Confirm
