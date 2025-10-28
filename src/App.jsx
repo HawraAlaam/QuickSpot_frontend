@@ -15,10 +15,13 @@ import JobForm from "./pages/JobForm"
 import PlaceList from "./pages/PlaceListing"
 import PlaceDetails from "./pages/PlaceDetails"
 
+
 import "./App.css"
 import EditProfile from "./pages/EditProfile"
 import EditPassword from "./pages/EditPassword"
 import PlaceForm from "./pages/PlaceForm"
+import BookingListing from "./pages/BookingListing"
+import BookingConfirm from "./components/BookingConfirm"
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -57,7 +60,6 @@ const App = () => {
             element={<EditProfile user={user} setUser={setUser} />}
           />
           <Route path="/auth/update/:id" element={<EditPassword />} />
-          <Route path="/profile" element={<Profile user={user} />} />
           <Route path="/home" element={<Home />} />
           <Route path="/jobList" element={<JobList />} />
           <Route path="/jobForm" element={<JobForm user={user} />} />
@@ -65,6 +67,11 @@ const App = () => {
           <Route path="/placeList" element={<PlaceList />} />
           <Route path="/placeForm" element={<PlaceForm user={user} />} />
           <Route path="/place/:id" element={<PlaceDetails />} />
+          <Route path="/bookings" element={<BookingListing user={user} />} />
+          <Route
+            path="/bookings/:bookingId"
+            element={<BookingConfirm user={user} />}
+          />
         </Routes>
       </main>
     </>
