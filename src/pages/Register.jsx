@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { RegisterUser } from "../services/Auth.js"
+import { Link } from "react-router-dom"
 
 const Register = () => {
   let navigate = useNavigate()
@@ -110,7 +111,9 @@ const Register = () => {
           Confirm
         </button>
 
-        <p className="login-prompt">Already have an account? Log In</p>
+        <p className="login-prompt">
+          Already have an account? <Link to={"/signin"}>Log in</Link>
+        </p>
       </form>
     </div>
   )
