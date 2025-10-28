@@ -5,13 +5,13 @@ const Nav = ({ user, handleLogOut }) => {
     userOptions = (
       <>
         <h3>Welcome {user.name}!</h3>
+
         <Link to={"/home"}> Home </Link>
         <Link to={"/jobList"}> Jobs </Link>
 
         <Link onClick={handleLogOut} to="/">
           Sign Out
         </Link>
-
       </>
     )
   }
@@ -24,7 +24,9 @@ const Nav = ({ user, handleLogOut }) => {
   )
   return (
     <header>
+
       <Link to="/"></Link>
+
       <nav>{user ? userOptions : publicOptions}</nav>
     </header>
   )

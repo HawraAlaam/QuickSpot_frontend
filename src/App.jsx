@@ -16,6 +16,8 @@ import PlaceList from "./pages/PlaceListing"
 
 
 import "./App.css"
+import EditProfile from "./pages/EditProfile"
+import EditPassword from "./pages/EditPassword"
 import PlaceForm from "./pages/PlaceForm"
 
 const App = () => {
@@ -46,6 +48,15 @@ const App = () => {
           <Route path="/" element={<Welcome />} />
           <Route path="/register" element={<Register />} />
           <Route path="/signin" element={<SignIn setUser={setUser} />} />
+          <Route
+            path="/profile/:id"
+            element={<Profile user={user} setUser={setUser} />}
+          />
+          <Route
+            path="/profile/edit/:id"
+            element={<EditProfile user={user} setUser={setUser} />}
+          />
+          <Route path="/auth/update/:id" element={<EditPassword />} />
           <Route path="/profile" element={<Profile user={user} />} />
           <Route path="/home" element={<Home />} />
           <Route path="/jobList" element={<JobList />} />
