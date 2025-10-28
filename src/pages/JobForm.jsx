@@ -22,6 +22,8 @@ const JobForm = () => {
     setFormValue({ ...formValue, [event.target.name]: event.target.value })
   }
 
+  console.log(formValue)
+
   const handleSubmit = async (event) => {
     event.preventDefault()
     const response = await Client.post("/jobs", formValue)
@@ -64,21 +66,21 @@ const JobForm = () => {
           required
         />
 
-        <label htmlFor="timeFrom">Time</label>
+        <label htmlFor="from">Time</label>
         <div className="timeInputGroup">
           <span>From:</span>
           <input
             type="time"
-            name="timeFrom"
-            value={formValue.timeFrom}
+            name="from"
+            value={formValue.from}
             onChange={handleChange}
             required
           />
           <span>To:</span>
           <input
             type="time"
-            name="timeTo"
-            value={formValue.timeTo}
+            name="to"
+            value={formValue.to}
             onChange={handleChange}
             required
           />
