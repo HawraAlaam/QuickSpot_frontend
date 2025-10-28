@@ -16,6 +16,7 @@ import PlaceList from "./pages/PlaceListing"
 
 import "./App.css"
 import PlaceForm from "./pages/PlaceForm"
+import BookingListing from "./pages/BookingListing"
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -52,6 +53,7 @@ const App = () => {
           <Route path="/jobs/:id" element={<JobDetails />} />
           <Route path="/placeList" element={<PlaceList />} />
           <Route path="/placeForm" element={<PlaceForm user={user} />} />
+          <Route path="/bookings" element={<BookingListing user={user} />} />
         </Routes>
       </main>
     </>
