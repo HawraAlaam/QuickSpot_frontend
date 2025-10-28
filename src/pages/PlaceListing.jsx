@@ -26,7 +26,7 @@ const PlaceList = () => {
         {places.length ? (
           places.map((place) => (
             <Link
-              to={`/places/${place._id}`}
+              to={`/place/${place._id}`}
               key={place._id}
               className="place-card"
             >
