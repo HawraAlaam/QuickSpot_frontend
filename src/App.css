@@ -1,8 +1,197 @@
+/* ==================================== */
+/* 1. BASE AND LAYOUT STYLES            */
+/* ==================================== */
+
 body {
-  margin: 0;
-  box-sizing: border-box;
+    /* Base styles */
+    font-family: sans-serif;
+    background-color: #ffffff;
+    margin: 0;
+
+    /* CRUCIAL for fixed nav: Add padding to push content down */
+    padding-top: 60px; /* Adjust this value if your header height changes */
+
+    /* Set up the body to align the main page content (like the sign-in form) */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Horizontally center all page content */
+    min-height: 100vh;
 }
 
-.booking-card {
-  border: 2px solid black;
+/* ==================================== */
+/* 2. NAVIGATION BAR STYLES (LINKS RIGHT-ALIGNED) */
+/* ==================================== */
+
+header {
+    /* Fixed Positioning */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-sizing: border-box;
+
+    /* ALIGNMENT CHANGE: Pushes Logo to the left, and Nav links to the right */
+    display: flex;
+    justify-content: space-between; /* <--- CHANGED THIS LINE */
+    align-items: center;
+    padding: 10px 40px;
+    /* Removed 'gap' as space-between is used */
+    background-color: #f8f8f8;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* --- LOGO IMAGE STYLING --- */
+.nav-logo {
+  /* Control the size of your logo image */
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Navigation Links Container */
+nav {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+/* User Welcome Text */
+nav h3 {
+    font-size: 1em;
+    font-weight: normal;
+    color: #555;
+    margin: 0;
+}
+
+/* General Link Styling */
+nav a {
+    color: #0C363C; /* Dark accent color */
+    text-decoration: none;
+    font-size: 1em;
+    padding: 5px 0;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+}
+
+/* Link Hover Effect */
+nav a:hover {
+    color: #0C363C;
+    border-bottom: 2px solid #777c90; /* Accent hover color */
+}
+
+/* Sign Out Button Look */
+nav a[onClick] {
+    color: #e84a4a; /* Red sign out color */
+    padding: 5px 10px;
+    border: 1px solid #e84a4a;
+    border-radius: 4px;
+}
+
+nav a[onClick]:hover {
+    color: white;
+    background-color: #e84a4a;
+    border-color: #e84a4a;
+    border-bottom: none;
+}
+
+/* ==================================== */
+/* 3. SIGN-IN PAGE STYLES (BIGGER & LOWER) */
+/* ==================================== */
+
+/* Main Sign-In Container (.signin) */
+.signin {
+    /* Pushes the form down from the top more than before */
+    margin-top: 70px;
+    margin-bottom: 70px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    /* Increased max-width for a BIGGER feel */
+    max-width: 450px;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Title Image and Text */
+.signin img {
+    /* Increased image size */
+    max-width: 370px;
+    height: auto;
+    margin-bottom: 35px;
+}
+
+/* Form and Input Styles */
+.signin form.col {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 18px; /* Increased gap */
+}
+
+/* Hide the labels since placeholder text is used */
+.input-wrapper label {
+    display: none;
+}
+
+.input-wrapper input {
+    width: 100%;
+    /* Increased input padding for a BIGGER look */
+    padding: 12px 18px;
+    border: none;
+    border-radius: 4px;
+    background-color: #e0e0e0;
+    /* Increased font size for a BIGGER look */
+    font-size: 1.1em;
+    color: #333;
+    box-sizing: border-box;
+}
+
+.input-wrapper input::placeholder {
+    color: #777c90;
+}
+
+/* Confirm/Sign In Button Style */
+.signin button {
+    width: 100%;
+    /* Increased button padding for a BIGGER look */
+    padding: 12px;
+    background-color: #0C363C; /* Dark accent color */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    /* Increased button font size */
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: 10px;
+}
+
+.signin button:hover:not(:disabled) {
+    background-color: #0C363C;
+}
+
+.signin button:disabled {
+    background-color: #a8a8a8;
+    cursor: not-allowed;
+}
+
+/* Register Link Area */
+.signin div h4 {
+    margin-top: 35px; /* Increased margin */
+    font-weight: normal;
+    font-size: 1.1em; /* Increased font size */
+    color: #333;
+}
+
+.signin div h4 a {
+    color: #777c90; /* Gray link color */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.signin div h4 a:hover {
+    text-decoration: underline;
+    color: #0C363C; /* Hover accent color */
 }

@@ -1,10 +1,10 @@
-import { useState } from 'react'
-import { SignInUser } from '../services/Auth'
-import { useNavigate, Link } from 'react-router-dom'
+import { useState } from "react"
+import { SignInUser } from "../services/Auth"
+import { useNavigate, Link } from "react-router-dom"
 
-const SignIn = ({setUser}) => {
+const SignIn = ({ setUser }) => {
   let navigate = useNavigate()
-  const initialState = { email: '', password: '' }
+  const initialState = { email: "", password: "" }
 
   const [formValues, setFormValues] = useState(initialState)
 
@@ -17,12 +17,12 @@ const SignIn = ({setUser}) => {
     const userData = await SignInUser(formValues)
     setFormValues(initialState)
     setUser(userData)
-    navigate('/home')
+    navigate("/home")
   }
 
   return (
     <div className="col signin">
-      <img src="/images/signin.png" alt="Sign In Title Image" />
+      <img src="/src/images/Screenshot_2025-10-28_152639-removebg-preview (1).png" alt="Sign In Title Image" />
       <form className="col" onSubmit={handleSubmit}>
         <div className="input-wrapper">
           <label htmlFor="email">Email</label>
@@ -53,8 +53,10 @@ const SignIn = ({setUser}) => {
         </button>
       </form>
       <div>
-        <h4> Don't have an account?
-           <Link to={"/register"}>Sign Up </Link>
+        <h4>
+          {" "}
+          Don't have an account?
+          <Link to={"/register"}>Sign Up </Link>
         </h4>
       </div>
     </div>
