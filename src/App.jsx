@@ -11,9 +11,9 @@ import Home from "./pages/Home"
 import JobDetails from "./pages/JobDeatails"
 import JobList from "./pages/JobListings"
 
-import JobForm from "./pages/Form"
+import JobForm from "./pages/JobForm"
 import PlaceList from "./pages/PlaceListing"
-
+import PlaceDetails from "./pages/PlaceDetails"
 
 import "./App.css"
 import EditProfile from "./pages/EditProfile"
@@ -64,6 +64,7 @@ const App = () => {
           <Route path="/jobs/:id" element={<JobDetails />} />
           <Route path="/placeList" element={<PlaceList />} />
           <Route path="/placeForm" element={<PlaceForm user={user} />} />
+          <Route path="/place/:id" element={<PlaceDetails />} />
         </Routes>
       </main>
     </>
