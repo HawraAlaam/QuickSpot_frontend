@@ -2,3 +2,7 @@ body {
   margin: 0;
   box-sizing: border-box;
 }
+
+.booking-card {
+  border: 2px solid black;
+}

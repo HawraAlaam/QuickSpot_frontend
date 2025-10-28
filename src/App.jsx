@@ -17,6 +17,7 @@ import PlaceList from "./pages/PlaceListing"
 import "./App.css"
 import PlaceForm from "./pages/PlaceForm"
 import BookingListing from "./pages/BookingListing"
+import BookingConfirm from "./components/BookingConfirm"
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -54,6 +55,10 @@ const App = () => {
           <Route path="/placeList" element={<PlaceList />} />
           <Route path="/placeForm" element={<PlaceForm user={user} />} />
           <Route path="/bookings" element={<BookingListing user={user} />} />
+          <Route
+            path="/bookings/:bookingId"
+            element={<BookingConfirm user={user} />}
+          />
         </Routes>
       </main>
     </>
