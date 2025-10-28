@@ -24,8 +24,11 @@ const Nav = ({ user, handleLogOut }) => {
   )
   return (
     <header>
-
-      <Link to="/"></Link>
+      <img
+        src="/src/images/Screenshot_2025-10-28_152639-removebg-preview (1).png"
+        alt="Company Logo"
+        className="nav-logo"
+      />
 
       <nav>{user ? userOptions : publicOptions}</nav>
     </header>
