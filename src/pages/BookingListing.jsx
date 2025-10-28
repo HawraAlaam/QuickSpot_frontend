@@ -15,22 +15,11 @@ const BookingListing = () => {
         setBookings(response.data)
         console.log(response.data)
       } catch (error) {
-        console.error("Error fetching jobs:", error)
-      }
-    }
-
-    const getBooking = async () => {
-      try {
-        const response = await Client.get(`/bookings/${bookingId}`)
-        setBooking(response.data)
-        console.log(response.data)
-      } catch (error) {
-        console.error("Error fetching booking:", error)
+        console.error("Error fetching bookings:", error)
       }
     }
 
     getBookings()
-    getBooking()
   }, [])
 
   return (
@@ -45,12 +34,9 @@ const BookingListing = () => {
               <p>
                 {booking.from} to {booking.to}
               </p>
-              <Link to={`/bookings/${bookingId}`}>
+              <Link to={`/bookings/${booking._id}`}>
                 <button>Complete</button>
               </Link>
-              <form action="">
-                <button>Delete</button>
-              </form>
             </div>
           ))
         ) : (

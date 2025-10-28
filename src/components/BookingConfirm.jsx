@@ -1,9 +1,10 @@
-import { useParams } from "react-router-dom"
+import { Link, useNavigate, useParams } from "react-router-dom"
 import Client from "../services/api"
 import { useEffect, useState } from "react"
 
 const BookingConfirm = () => {
   const { bookingId } = useParams()
+  let navigate = useNavigate()
   const [booking, setBooking] = useState(null)
 
   useEffect(() => {
@@ -19,17 +20,21 @@ const BookingConfirm = () => {
 
     getBooking()
   }, [])
+
   const handleClick = async () => {
     await Client.delete(`/bookings/${bookingId}`)
+    navigate("/bookings")
   }
-  return (
+  return booking ? (
     <div className="booking-confirm">
+      <h3>{booking.place}</h3>
       <p>Are you sure you completed this booking?</p>
-
-      <button>Cancel</button>
+      <Link to={"/bookings"}>
+        <button>Cancel</button>
+      </Link>
       <button onClick={handleClick}>Yes</button>
     </div>
-  )
+  ) : null
 }
 
 export default BookingConfirm

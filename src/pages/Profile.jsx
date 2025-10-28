@@ -1,19 +1,33 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
+import Client from "../services/api"
+import { useParams } from "react-router-dom"
 
-const Profile = ({ user }) => {
-  useEffect(() => {})
+const Profile = ({}) => {
+  const { id } = useParams()
+  const [user, setUser] = useState([])
+
+  useEffect(() => {
+    const getUser = async () => {
+      const response = await Client.get(`/profile/${id}`)
+      setUser(response.data)
+      console.log(response.data)
+    }
+    getUser()
+  }, [])
 
   return user ? (
     <div>
-      <img src="" alt="" />
-      <h4>First Name:</h4>
-      <h4>Last Name:</h4>
-      <h4>Email:</h4>
-      <h4>Bio:</h4>{" "}
+      <h4>First Name: {user.firstName} </h4>
+      <h4>Last Name: {user.lastName}</h4>
+      <h4>Email: {user.email} </h4>
+      <h4>Mobile: {user.mobileNumber} </h4>
+      <h4>Bio: {user.bio} </h4>
+      <Link to={`/profile/edit/${id}`}>
+        <button>Edit profile</button>
+      </Link>
     </div>
-  ) : (
-    <h1>No User</h1>
-  )
+  ) : null
 }
 
 export default Profile
