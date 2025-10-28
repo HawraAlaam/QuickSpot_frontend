@@ -49,6 +49,14 @@ const PlaceDetails = () => {
       <p>
         <strong>Description:</strong> {place.description}
       </p>
+      {console.log(place.images)}
+
+      {/* i need to use the map because i want to preview the images from an array (using a forEach will return undefined) using map will create new array with each image and then preview it one by one. */}
+
+      {place.images.map((image) => (
+        <img src={`http://localhost:3000/${image}`} alt="place" />
+      ))}
+
       {place.owner && (
         <p>
           <strong>Posted by:</strong> {place.owner.name || place.owner.email}

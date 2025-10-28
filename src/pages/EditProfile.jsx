@@ -16,9 +16,14 @@ const EditProfile = ({}) => {
     getUser()
   }, [])
 
-  const handleChange = (event) => {
-    setUser({ ...user, [event.target.name]: event.target.value })
+  const handleChange = (e) => {
+    setUser({
+      ...user,
+      [e.target.name]: e.target.value,
+      [id]: type === "file" ? files[0] : value,
+    })
   }
+
   const handleSubmit = async (event) => {
     event.preventDefault()
     const response = await Client.put(`/profile/edit/${id}`, {
@@ -27,13 +32,22 @@ const EditProfile = ({}) => {
       email: user.email,
       mobileNumber: user.mobileNumber,
       bio: user.bio,
+      image: user.image
     })
     setUser(response.data)
+
     navigate(`/profile/${id}`)
   }
   return user ? (
     <div>
       <form onSubmit={handleSubmit}>
+        <label htmlFor="image">Image:</label>
+        <input
+          type="file"
+          name="image"
+          onChange={handleChange}
+        />
+
         <label htmlFor="firstName">First Name:</label>
         <input
           type="text"
