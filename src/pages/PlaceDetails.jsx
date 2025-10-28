@@ -31,6 +31,7 @@ const PlaceDetails = () => {
 
   const handleSubmit = async () => {
     await Client.post(`/bookings`, {
+      type: "place",
       place: place.name,
       date: place.date,
       from: place.from,

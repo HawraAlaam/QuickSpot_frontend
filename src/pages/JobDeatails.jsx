@@ -32,6 +32,7 @@ const JobDetails = () => {
 
   const handleSubmit = async () => {
     await Client.post(`/bookings`, {
+      type: "job",
       place: job.title,
       date: job.date,
       from: job.from,
