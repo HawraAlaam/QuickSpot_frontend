@@ -18,7 +18,7 @@ const JobDetails = ({ user }) => {
     }
 
     console.log(job)
-
+    console.log(user)
     getJob()
   }, [id])
   const handleDelete = async () => {
@@ -43,7 +43,7 @@ const JobDetails = ({ user }) => {
   }
   if (!job) return <p>Loading job details...</p>
 
-  return (
+  return user ? (
     <div className="job-details">
       <h2>{job.title}</h2>
       <p>
@@ -61,21 +61,26 @@ const JobDetails = ({ user }) => {
       <p>
         <strong>Description:</strong> {job.description}
       </p>
-      {job.owner && (
-        <p>
-          <strong>Posted by:</strong> {job.owner.name || job.owner.email}
-        </p>
-      )}
+
+      <p>
+        <strong>Posted by:</strong>{" "}
+        <Link to={`/profile/${job.owner._id}`}>
+          {job.owner
+            ? job.owner.firstName + " " + job.owner.lastName
+            : "unknown"}
+        </Link>
+      </p>
 
       <Link to={"/home"}> Back </Link>
-
-      <button onClick={handleDelete} className="deletejob">
-        Delete
-      </button>
+      {user.id === job.owner._id ? (
+        <button onClick={handleDelete} className="deletejob">
+          Delete
+        </button>
+      ) : null}
 
       <button onClick={handleSubmit}>Apply</button>
     </div>
-  )
+  ) : null
 }
 
 export default JobDetails
