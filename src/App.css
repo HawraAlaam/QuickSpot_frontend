@@ -440,3 +440,12 @@ nav a[onClick]:hover {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
     text-align: left;
 }
+
+/* Place Name Title */
+.place-details h2 {
+    font-size: 2.5em;
+    color: #0C363C;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 15px;
+}
