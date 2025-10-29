@@ -457,3 +457,17 @@ nav a[onClick]:hover {
     margin-bottom: 12px;
     color: #333;
 }
+
+.place-details p strong {
+    color: #0C363C;
+    font-weight: bold;
+    display: inline-block;
+    min-width: 100px; /* Aligns the data values */
+}
+
+/* Description Textarea/Paragraph */
+.place-details p:last-of-type { /* Targeting the Description paragraph */
+    padding-top: 15px;
+    margin-top: 20px;
+    border-top: 1px solid #f0f0f0;
+}
