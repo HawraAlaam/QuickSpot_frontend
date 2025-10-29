@@ -41,6 +41,7 @@ const BookingListing = ({ user }) => {
                     <p>
                       {booking.from} to {booking.to}
                     </p>
+                    <Link to={"/home"}> Back </Link>
                     <Link to={`/bookings/${booking._id}`}>
                       <button>Complete</button>
                     </Link>
@@ -55,6 +56,7 @@ const BookingListing = ({ user }) => {
                     <p>
                       {booking.from} to {booking.to}
                     </p>
+                    <Link to={"/home"}> Back </Link>
                     <Link to={`/bookings/${booking._id}`}>
                       <button>Complete</button>
                     </Link>
