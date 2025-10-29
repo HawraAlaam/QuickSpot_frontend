@@ -492,3 +492,55 @@ nav a[onClick]:hover {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s;
 }
+.place-details img:hover {
+    transform: scale(1.02);
+}
+
+/* --- Action Buttons and Links --- */
+.place-details > button,
+.place-details > a:not(.image-gallery) {
+    /* Base style for all action buttons and main links */
+    display: inline-block;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1em;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s, opacity 0.2s;
+    margin-right: 15px; /* Space between buttons */
+    margin-top: 25px;
+    border: none;
+}
+
+/* Book Button */
+.place-details button:last-of-type { /* Targeting the Book button */
+    background-color: #0C363C;
+    color: white;
+}
+
+.place-details button:last-of-type:hover {
+    background-color: #08282d;
+}
+
+/* Delete Button */
+.place-details .deletePlace {
+    background-color: #e84a4a; /* Red color for destructive action */
+    color: white;
+}
+
+.place-details .deletePlace:hover {
+    background-color: #c73737;
+}
+
+/* Back Link */
+.place-details a[href="/home"] { /* Targeting the "Back" link */
+    background-color: #f0f0f0;
+    color: #333;
+    border: 1px solid #ccc;
+}
+
+.place-details a[href="/home"]:hover {
+    background-color: #e0e0e0;
+}
