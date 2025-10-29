@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import Client from "../services/api"
 import { Link } from "react-router-dom"
 
-const PlaceList = () => {
+const PlaceList = ({ user }) => {
   const [places, setPlaces] = useState([])
 
   useEffect(() => {
@@ -19,7 +19,7 @@ const PlaceList = () => {
     getPlaces()
   }, [])
 
-  return (
+  return user ? (
     <div className="place-list">
       <h2>Available places</h2>
       <div className="place-grid">
@@ -30,7 +30,7 @@ const PlaceList = () => {
               key={place._id}
               className="place-card"
             >
-              <h3>{place.title}</h3>
+              <h3>{place.name}</h3>
               <p>{place.location}</p>
               <p>${place.price}</p>
             </Link>
@@ -40,7 +40,7 @@ const PlaceList = () => {
         )}
       </div>
     </div>
-  )
+  ) : null
 }
 
 export default PlaceList

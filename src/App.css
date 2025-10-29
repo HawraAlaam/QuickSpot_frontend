@@ -310,6 +310,132 @@ nav a[onClick]:hover {
 }
 
 /* ==================================== */
+/* 6. HOME PAGE JOB GRID STYLES         */
+/* ==================================== */
+
+/* Main Home Container */
+.home-container {
+  width: 100%;
+  /* Max width prevents the content from stretching too wide on large screens */
+  max-width: 1200px;
+  margin: 40px auto; /* Centers the container horizontally and adds vertical space */
+  padding: 0 20px;
+  text-align: center;
+}
+
+/* Page Title */
+.home-container h2 {
+  font-size: 2.2em;
+  color: #0c363c;
+  margin-bottom: 35px;
+  text-align: center;
+}
+
+/* Job Grid Layout */
+.job-grid {
+  display: grid;
+  /* Create responsive columns:
+       4 columns on desktop, wraps down to 2, then 1 on smaller screens */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px; /* Space between the cards */
+  margin-bottom: 40px;
+}
+
+/* Individual Job Card */
+.job-card {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Pushes the link to the bottom */
+  text-align: left;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.job-card:hover {
+  transform: translateY(-5px); /* Lift effect on hover */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Job Card Headings */
+.job-card h3 {
+  font-size: 1.4em;
+  color: #0c363c;
+  margin-top: 0;
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+
+/* Job Card Paragraphs (Location, Salary) */
+.job-card h4 {
+  font-size: 1em;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+/* Link inside the card (View Details) */
+.job-grid a {
+  align-self: flex-start; /* Aligns the link button to the left */
+  margin-top: 15px;
+  text-decoration: none;
+  font-weight: bold;
+  color: #777c90; /* Gray link color */
+  transition: color 0.2s;
+}
+
+.job-card a:hover {
+  color: #0c363c; /* Dark accent color on hover */
+}
+
+/* See More Jobs Button Styling */
+.more-btn {
+  margin-bottom: 40px;
+}
+
+.more-btn a {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #0c363c;
+  color: white;
+  text-decoration: none;
+  font-size: 1.1em;
+  font-weight: bold;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.more-btn a:hover {
+  background-color: #08282d;
+}
+
+/* Add Place Link Styling */
+.home-container > div:last-child a {
+  color: #777c90; /* Gray link color */
+  text-decoration: none;
+  font-size: 1em;
+  transition: color 0.2s;
+}
+
+.home-container > div:last-child a:hover {
+  color: #0c363c;
+  text-decoration: underline;
+}
+
+.login-prompt a {
+  color: #777c90; /* Gray link color */
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.login-prompt a:hover {
+  text-decoration: underline;
+  color: #0c363c; /* Accent hover color */
+}
+
+/* ==================================== */
 /* 5. JOB FORM STYLES                   */
 /* ==================================== */
 

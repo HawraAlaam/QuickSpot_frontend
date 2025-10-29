@@ -2,7 +2,7 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import Client from "../services/api"
 
-const PlaceForm = () => {
+const PlaceForm = ({ user }) => {
   let navigate = useNavigate()
 
   const initialState = {
@@ -34,6 +34,7 @@ const PlaceForm = () => {
     localStorage.setItem("imageUpload", "true")
 
     const formData = new FormData()
+    formData.append("owner", user.id)
     formData.append("name", formValues.name)
     formData.append("price", formValues.price)
     formData.append("date", formValues.date)
@@ -53,11 +54,17 @@ const PlaceForm = () => {
     localStorage.removeItem("imageUpload")
   }
 
-  return (
+  return user ? (
     <div className="placeFormContainer">
       <h2>Post place</h2>
 
       <form onSubmit={handleSubmit}>
+        <input
+          type="hidden"
+          name="owner"
+          value={user.id}
+          onChange={handleChange}
+        />
         <label htmlFor="name">Title</label>
         <input
           type="text"
@@ -136,7 +143,7 @@ const PlaceForm = () => {
         <button type="submit">Post</button>
       </form>
     </div>
-  )
+  ) : null
 }
 
 export default PlaceForm

@@ -3,7 +3,7 @@ import { useParams, useNavigate } from "react-router-dom"
 import { Link } from "react-router-dom"
 import Client from "../services/api"
 
-const JobDetails = () => {
+const JobDetails = ({ user }) => {
   const { id } = useParams()
   const [job, setJob] = useState(null)
   const navigate = useNavigate()
@@ -18,7 +18,7 @@ const JobDetails = () => {
     }
 
     console.log(job)
-
+    console.log(user)
     getJob()
   }, [id])
   const handleDelete = async () => {
@@ -37,12 +37,14 @@ const JobDetails = () => {
       date: job.date,
       from: job.from,
       to: job.to,
+      owner: user.id,
     })
+    await Client.delete(`/jobs/${id}`)
     navigate("/bookings")
   }
   if (!job) return <p>Loading job details...</p>
 
-  return (
+  return user ? (
     <div className="job-details">
       <h2>{job.title}</h2>
       <p>
@@ -60,21 +62,26 @@ const JobDetails = () => {
       <p>
         <strong>Description:</strong> {job.description}
       </p>
-      {job.owner && (
-        <p>
-          <strong>Posted by:</strong> {job.owner.name || job.owner.email}
-        </p>
-      )}
+
+      <p>
+        <strong>Posted by:</strong>{" "}
+        <Link to={`/profile/${job.owner._id}`}>
+          {job.owner
+            ? job.owner.firstName + " " + job.owner.lastName
+            : "unknown"}
+        </Link>
+      </p>
 
       <Link to={"/home"}> Back </Link>
-
-      <button onClick={handleDelete} className="deletejob">
-        Delete
-      </button>
+      {user.id === job.owner._id ? (
+        <button onClick={handleDelete} className="deletejob">
+          Delete
+        </button>
+      ) : null}
 
       <button onClick={handleSubmit}>Apply</button>
     </div>
-  )
+  ) : null
 }
 
 export default JobDetails
