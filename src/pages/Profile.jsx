@@ -9,6 +9,7 @@ const Profile = ({}) => {
 
   useEffect(() => {
     const getUser = async () => {
+      
       const response = await Client.get(`/profile/${id}`)
       setUser(response.data)
       console.log(response.data)
