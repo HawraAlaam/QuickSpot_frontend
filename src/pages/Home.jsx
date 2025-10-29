@@ -37,7 +37,7 @@ const Home = () => {
                 <h3>{job.title}</h3>
                 <h4>Date: {job.date}</h4>
                 <h4>
-                  From:{job.from} To:{job.to}
+                  Time: {job.from} - {job.to}
                 </h4>
                 <h4>Salary: {job.salary} BD</h4>
               </div>
@@ -46,6 +46,9 @@ const Home = () => {
         ) : (
           <p>No jobs available.</p>
         )}
+        <div className="more-btn">
+          <Link to="/jobList">See More Jobs</Link>
+        </div>
       </div>
       <h2>Latest places</h2>
       <div className="place-grid">
@@ -56,7 +59,7 @@ const Home = () => {
                 <h3>{place.name}</h3>
                 <h4>Date: {place.date}</h4>
                 <h4>
-                  From:{place.from} To:{place.to}
+                  Time: {place.from} - {place.to}
                 </h4>
                 <h4>Price: {place.price} BD</h4>
               </div>
@@ -65,13 +68,9 @@ const Home = () => {
         ) : (
           <p>No places available.</p>
         )}
-
       </div>
       <div className="more-btn">
-        <Link to="/jobList">See More Jobs</Link>
-      </div>
-      <div>
-        <Link to={"/placeForm"}>Add Place</Link>
+        <Link to="/placeList">See More PLaces</Link>
       </div>
     </div>
   )

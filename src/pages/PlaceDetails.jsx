@@ -85,9 +85,9 @@ const PlaceDetails = ({ user }) => {
         <button onClick={handleDelete} className="deletePlace">
           Delete
         </button>
-      ) : null}
-
-      <button onClick={handleSubmit}>Book</button>
+      ) : (
+        <button onClick={handleSubmit}>Book</button>
+      )}
     </div>
   ) : null
 }
