@@ -449,3 +449,11 @@ nav a[onClick]:hover {
     border-bottom: 2px solid #e0e0e0;
     padding-bottom: 15px;
 }
+
+/* Detail Paragraphs */
+.place-details p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 12px;
+    color: #333;
+}
