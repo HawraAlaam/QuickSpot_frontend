@@ -471,3 +471,13 @@ nav a[onClick]:hover {
     margin-top: 20px;
     border-top: 1px solid #f0f0f0;
 }
+
+/* --- Image Gallery/Preview Section --- */
+.place-details > .image-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    justify-content: flex-start; /* Aligns images to the left */
+}
