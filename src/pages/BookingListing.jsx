@@ -26,17 +26,39 @@ const BookingListing = () => {
     <div className="booking-list">
       <h2>Bookings</h2>
       <div className="booking-grid">
-        {bookings.length ? (
+        <h1>Jobs</h1>
+        {bookings ? (
           bookings.map((booking) => (
             <div className="booking-card" key={booking._id}>
-              <h3>{booking.place}</h3>
-              <p>{booking.date}</p>
-              <p>
-                {booking.from} to {booking.to}
-              </p>
-              <Link to={`/bookings/${booking._id}`}>
-                <button>Complete</button>
-              </Link>
+              {booking.type === "job" ? (
+                <div className="job-booking">
+                  <p>
+                    <b>Job:</b>
+                  </p>
+                  <p>{booking.place}</p>
+                  <p>{booking.date}</p>
+                  <p>
+                    {booking.from} to {booking.to}
+                  </p>
+                  <Link to={`/bookings/${booking._id}`}>
+                    <button>Complete</button>
+                  </Link>
+                </div>
+              ) : (
+                <div className="place-booking">
+                  <p>
+                    <b>Place:</b>
+                  </p>
+                  <p>{booking.place}</p>
+                  <p>{booking.date}</p>
+                  <p>
+                    {booking.from} to {booking.to}
+                  </p>
+                  <Link to={`/bookings/${booking._id}`}>
+                    <button>Complete</button>
+                  </Link>
+                </div>
+              )}
             </div>
           ))
         ) : (

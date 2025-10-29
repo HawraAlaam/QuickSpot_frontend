@@ -3,7 +3,7 @@ import { useParams, useNavigate } from "react-router-dom"
 import { Link } from "react-router-dom"
 import Client from "../services/api"
 
-const JobDetails = () => {
+const JobDetails = ({ user }) => {
   const { id } = useParams()
   const [job, setJob] = useState(null)
   const navigate = useNavigate()
@@ -38,6 +38,7 @@ const JobDetails = () => {
       from: job.from,
       to: job.to,
     })
+    await Client.delete(`/jobs/${id}`)
     navigate("/bookings")
   }
   if (!job) return <p>Loading job details...</p>

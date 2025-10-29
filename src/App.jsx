@@ -14,7 +14,6 @@ import JobForm from "./pages/JobForm"
 import PlaceList from "./pages/PlaceListing"
 import PlaceDetails from "./pages/PlaceDetails"
 
-
 import "./App.css"
 import EditProfile from "./pages/EditProfile"
 import EditPassword from "./pages/EditPassword"
@@ -62,7 +61,7 @@ const App = () => {
           <Route path="/home" element={<Home />} />
           <Route path="/jobList" element={<JobList />} />
           <Route path="/jobForm" element={<JobForm user={user} />} />
-          <Route path="/jobs/:id" element={<JobDetails />} />
+          <Route path="/jobs/:id" element={<JobDetails user={user} />} />
           <Route path="/placeList" element={<PlaceList />} />
           <Route path="/placeForm" element={<PlaceForm user={user} />} />
           <Route path="/place/:id" element={<PlaceDetails />} />

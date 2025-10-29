@@ -31,19 +31,23 @@ const Home = () => {
       <div className="job-grid">
         {jobs.length ? (
           jobs.map((job) => (
-            <div key={job._id} className="job-card">
-              <h3>{job.title}</h3>
-              <p>{job.location}</p>
-              <p>${job.salary}</p>
-              <Link to={`/jobs/${job._id}`}>View Details</Link>
-            </div>
+            <Link to={`/jobs/${job._id}`}>
+              <div key={job._id} className="job-card">
+                <h3>{job.title}</h3>
+                <h4>Date: {job.date}</h4>
+                <h4>
+                  From:{job.from} To:{job.to}
+                </h4>
+                <h4>Salary: {job.salary} BD</h4>
+              </div>
+            </Link>
           ))
         ) : (
           <p>No jobs available.</p>
         )}
       </div>
       <div className="more-btn">
-        <Link to="/jobs">See More Jobs</Link>
+        <Link to="/jobList">See More Jobs</Link>
       </div>
       <div>
         <Link to={"/placeForm"}>Add Place</Link>

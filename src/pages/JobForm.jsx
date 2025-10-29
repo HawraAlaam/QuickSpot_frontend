@@ -2,7 +2,7 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import Client from "../services/api"
 
-const JobForm = () => {
+const JobForm = ({ user }) => {
   let navigate = useNavigate()
 
   const initialState = {
@@ -23,21 +23,30 @@ const JobForm = () => {
   }
 
   console.log(formValue)
+  console.log(user)
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-    const response = await Client.post("/jobs", formValue)
+    const formData = { ...formValue, owner: user.id }
+    const response = await Client.post("/jobs", formData)
     setJob(response.data)
     setFormValue(initialState)
     navigate(`/jobs/${response.data._id}`)
   }
 
-  return (
+  return user ? (
     <div className="jobFormContainer">
       <h2>Post job</h2>
 
       <form onSubmit={handleSubmit}>
+        <input
+          type="hidden"
+          name="owner"
+          value={user.id}
+          onChange={handleChange}
+        />
         <label htmlFor="title">Title</label>
+
         <input
           type="text"
           name="title"
@@ -108,7 +117,7 @@ const JobForm = () => {
         <button type="submit">Post</button>
       </form>
     </div>
-  )
+  ) : null
 }
 
 export default JobForm
