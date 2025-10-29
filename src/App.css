@@ -1,235 +1,221 @@
-/* ==================================== */
-/* 1. BASE AND LAYOUT STYLES            */
-/* ==================================== */
+/* ======================================================= */
+/* 1. BASE AND LAYOUT STYLES                               */
+/* ======================================================= */
 
 body {
-  /* Base styles */
-  font-family: sans-serif;
-  background-color: #ffffff;
-  margin: 0;
+    /* Base styles */
+    font-family: sans-serif;
+    background-color: #ffffff;
+    margin: 0;
 
-  /* CRUCIAL for fixed nav: Add padding to push content down */
-  padding-top: 60px; /* Adjust this value if your header height changes */
+    /* CRUCIAL for fixed nav: Add padding to push content down */
+    padding-top: 60px;
 
-  /* Set up the body to align the main page content (like the sign-in form) */
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Horizontally center all page content */
-  min-height: 100vh;
+    /* Set up the body to align the main page content */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Horizontally center all page content */
+    min-height: 100vh;
 }
 
-/* ==================================== */
-/* 2. NAVIGATION BAR STYLES (LINKS RIGHT-ALIGNED) */
-/* ==================================== */
+/* ======================================================= */
+/* 2. NAVIGATION BAR STYLES                                */
+/* ======================================================= */
 
 header {
-  /* Fixed Positioning */
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-  box-sizing: border-box;
+    /* Fixed Positioning */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-sizing: border-box;
 
-  /* ALIGNMENT CHANGE: Pushes Logo to the left, and Nav links to the right */
-  display: flex;
-  justify-content: space-between; /* <--- CHANGED THIS LINE */
-  align-items: center;
-  padding: 10px 40px;
-  /* Removed 'gap' as space-between is used */
-  background-color: #f8f8f8;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* ALIGNMENT: Logo to the left, Nav links to the right */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px;
+    background-color: #f8f8f8;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* --- LOGO IMAGE STYLING --- */
 .nav-logo {
-  /* Control the size of your logo image */
-  height: 40px;
-  width: auto;
-  object-fit: contain;
+    height: 40px;
+    width: auto;
+    object-fit: contain;
 }
 
 /* Navigation Links Container */
 nav {
-  display: flex;
-  align-items: center;
-  gap: 25px;
+    display: flex;
+    align-items: center;
+    gap: 25px;
 }
 
 /* User Welcome Text */
 nav h3 {
-  font-size: 1em;
-  font-weight: normal;
-  color: #555;
-  margin: 0;
+    font-size: 1em;
+    font-weight: normal;
+    color: #555;
+    margin: 0;
 }
 
 /* General Link Styling */
 nav a {
-  color: #0c363c; /* Dark accent color */
-  text-decoration: none;
-  font-size: 1em;
-  padding: 5px 0;
-  transition: color 0.3s ease, border-bottom 0.3s ease;
+    color: #0c363c; /* Dark accent color */
+    text-decoration: none;
+    font-size: 1em;
+    padding: 5px 0;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
 }
 
 /* Link Hover Effect */
 nav a:hover {
-  color: #0c363c;
-  border-bottom: 2px solid #777c90; /* Accent hover color */
+    color: #0c363c;
+    border-bottom: 2px solid #777c90; /* Accent hover color */
 }
 
 /* Sign Out Button Look */
 nav a[onClick] {
-  color: #e84a4a; /* Red sign out color */
-  padding: 5px 10px;
-  border: 1px solid #e84a4a;
-  border-radius: 4px;
+    color: #e84a4a; /* Red sign out color */
+    padding: 5px 10px;
+    border: 1px solid #e84a4a;
+    border-radius: 4px;
 }
 
 nav a[onClick]:hover {
-  color: white;
-  background-color: #e84a4a;
-  border-color: #e84a4a;
-  border-bottom: none;
+    color: white;
+    background-color: #e84a4a;
+    border-color: #e84a4a;
+    border-bottom: none;
 }
 
-/* ==================================== */
-/* 3. SIGN-IN PAGE STYLES (BIGGER & LOWER) */
-/* ==================================== */
+/* ======================================================= */
+/* 3. SIGN-IN PAGE STYLES                                  */
+/* ======================================================= */
 
 /* Main Sign-In Container (.signin) */
 .signin {
-  /* Pushes the form down from the top more than before */
-  margin-top: 70px;
-  margin-bottom: 70px;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  /* Increased max-width for a BIGGER feel */
-  max-width: 450px;
-  padding: 20px;
-  text-align: center;
+    margin-top: 70px;
+    margin-bottom: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 450px;
+    padding: 20px;
+    text-align: center;
 }
 
 /* Title Image and Text */
 .signin img {
-  /* Increased image size */
-  max-width: 370px;
-  height: auto;
-  margin-bottom: 35px;
+    max-width: 370px;
+    height: auto;
+    margin-bottom: 35px;
 }
 
 /* Form and Input Styles */
 .signin form.col {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 18px; /* Increased gap */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
 }
 
 /* Hide the labels since placeholder text is used */
 .input-wrapper label {
-  display: none;
+    display: none;
 }
 
 .input-wrapper input {
-  width: 100%;
-  /* Increased input padding for a BIGGER look */
-  padding: 12px 18px;
-  border: none;
-  border-radius: 4px;
-  background-color: #e0e0e0;
-  /* Increased font size for a BIGGER look */
-  font-size: 1.1em;
-  color: #333;
-  box-sizing: border-box;
+    width: 100%;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 4px;
+    background-color: #e0e0e0;
+    font-size: 1.1em;
+    color: #333;
+    box-sizing: border-box;
 }
 
 .input-wrapper input::placeholder {
-  color: #777c90;
+    color: #777c90;
 }
 
 /* Confirm/Sign In Button Style */
 .signin button {
-  width: 100%;
-  /* Increased button padding for a BIGGER look */
-  padding: 12px;
-  background-color: #0c363c; /* Dark accent color */
-  color: white;
-  border: none;
-  border-radius: 4px;
-  /* Increased button font size */
-  font-size: 1.2em;
-  cursor: pointer;
-  transition: background-color 0.2s;
-  margin-top: 10px;
+    width: 100%;
+    padding: 12px;
+    background-color: #0c363c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: 10px;
 }
 
 .signin button:hover:not(:disabled) {
-  background-color: #0c363c;
+    background-color: #0c363c;
 }
 
 .signin button:disabled {
-  background-color: #a8a8a8;
-  cursor: not-allowed;
+    background-color: #a8a8a8;
+    cursor: not-allowed;
 }
 
 /* Register Link Area */
 .signin div h4 {
-  margin-top: 35px; /* Increased margin */
-  font-weight: normal;
-  font-size: 1.1em; /* Increased font size */
-  color: #333;
+    margin-top: 35px;
+    font-weight: normal;
+    font-size: 1.1em;
+    color: #333;
 }
 
 .signin div h4 a {
-  color: #777c90; /* Gray link color */
-  text-decoration: none;
-  font-weight: bold;
+    color: #777c90;
+    text-decoration: none;
+    font-weight: bold;
 }
 
 .signin div h4 a:hover {
-  text-decoration: underline;
-  color: #0c363c; /* Hover accent color */
+    text-decoration: underline;
+    color: #0c363c;
 }
 
-/* ==================================== */
-/* 4. REGISTER PAGE STYLES              */
-/* ==================================== */
+/* ======================================================= */
+/* 4. REGISTER PAGE STYLES                                 */
+/* ======================================================= */
 
 /* Main Register Container (.register-container) */
 .register-container {
-  /* Aligns the form vertically in the center of the page (set by body styles) */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  /* Same width as the Sign In form for consistency */
-  max-width: 450px;
-  padding: 30px 20px;
-  text-align: center;
-
-  /* Slightly lower position than the Sign In form because it's taller */
-  margin-top: 50px;
-  margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 450px;
+    padding: 30px 20px;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 /* Page Title */
 .register-container h2 {
-  font-size: 1.8em;
-  color: #0c363c;
-  margin-bottom: 30px;
+    font-size: 1.8em;
+    color: #0c363c;
+    margin-bottom: 30px;
 }
 
 /* Form Container */
 .register-container form {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 15px; /* Space between inputs */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
 /* Input Fields (Text, Email, Password, Tel) */
@@ -237,414 +223,419 @@ nav a[onClick]:hover {
 .register-container input[type="email"],
 .register-container input[type="password"],
 .register-container input[type="tel"] {
-  width: 100%;
-  padding: 12px 18px;
-  border: none;
-  border-radius: 4px;
-  background-color: #e0e0e0;
-  font-size: 1.1em;
-  color: #333;
-  box-sizing: border-box;
+    width: 100%;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 4px;
+    background-color: #e0e0e0;
+    font-size: 1.1em;
+    color: #333;
+    box-sizing: border-box;
 }
 
 .register-container input::placeholder {
-  color: #777c90;
+    color: #777c90;
 }
 
 /* File Input (Upload Image) */
 .register-container input[type="file"] {
-  /* Style the actual file input button */
-  padding: 10px 0;
-  font-size: 1em;
-  color: #333;
+    padding: 10px 0;
+    font-size: 1em;
+    color: #333;
 }
 
 /* Label for File Input */
 .register-container label[for="image"] {
-  display: block;
-  text-align: left;
-  font-size: 0.9em;
-  color: #555;
-  margin-bottom: -5px; /* Pull it closer to the input */
+    display: block;
+    text-align: left;
+    font-size: 0.9em;
+    color: #555;
+    margin-bottom: -5px;
 }
 
 /* Confirm Button Style */
 .register-container button {
-  width: 100%;
-  padding: 12px;
-  background-color: #0c363c;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  font-size: 1.2em;
-  cursor: pointer;
-  transition: background-color 0.2s;
-  margin-top: 15px; /* Extra space above the button */
+    width: 100%;
+    padding: 12px;
+    background-color: #0c363c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: 15px;
 }
 
 .register-container button:hover:not(:disabled) {
-  background-color: #0c363c; /* Use the same dark color on hover for simplicity */
+    background-color: #0c363c;
 }
 
 .register-container button:disabled {
-  background-color: #a8a8a8;
-  cursor: not-allowed;
+    background-color: #a8a8a8;
+    cursor: not-allowed;
 }
 
 /* Already have an account prompt */
 .login-prompt {
-  margin-top: 20px;
-  font-size: 1.1em;
-  color: #333;
+    margin-top: 20px;
+    font-size: 1.1em;
+    color: #333;
 }
 
 .login-prompt a {
-  color: #777c90; /* Gray link color */
-  text-decoration: none;
-  font-weight: bold;
+    color: #777c90;
+    text-decoration: none;
+    font-weight: bold;
 }
 
 .login-prompt a:hover {
-  text-decoration: underline;
-  color: #0c363c; /* Accent hover color */
+    text-decoration: underline;
+    color: #0c363c;
 }
 
-/* ==================================== */
-/* 6. HOME PAGE JOB GRID STYLES         */
-/* ==================================== */
-
-/* Main Home Container */
-.home-container {
-  width: 100%;
-  /* Max width prevents the content from stretching too wide on large screens */
-  max-width: 1200px;
-  margin: 40px auto; /* Centers the container horizontally and adds vertical space */
-  padding: 0 20px;
-  text-align: center;
-}
-
-/* Page Title */
-.home-container h2 {
-  font-size: 2.2em;
-  color: #0c363c;
-  margin-bottom: 35px;
-  text-align: center;
-}
-
-/* Job Grid Layout */
-.job-grid {
-  display: grid;
-  /* Create responsive columns:
-       4 columns on desktop, wraps down to 2, then 1 on smaller screens */
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px; /* Space between the cards */
-  margin-bottom: 40px;
-}
-
-/* Individual Job Card */
-.job-card {
-  background-color: #ffffff;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between; /* Pushes the link to the bottom */
-  text-align: left;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.job-card:hover {
-  transform: translateY(-5px); /* Lift effect on hover */
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-}
-
-/* Job Card Headings */
-.job-card h3 {
-  font-size: 1.4em;
-  color: #0c363c;
-  margin-top: 0;
-  margin-bottom: 10px;
-  line-height: 1.2;
-}
-
-/* Job Card Paragraphs (Location, Salary) */
-.job-card h4 {
-  font-size: 1em;
-  color: #555;
-  margin-bottom: 8px;
-}
-
-/* Link inside the card (View Details) */
-.job-grid a {
-  align-self: flex-start; /* Aligns the link button to the left */
-  margin-top: 15px;
-  text-decoration: none;
-  font-weight: bold;
-  color: #777c90; /* Gray link color */
-  transition: color 0.2s;
-}
-
-.job-card a:hover {
-  color: #0c363c; /* Dark accent color on hover */
-}
-
-/* See More Jobs Button Styling */
-.more-btn {
-  margin-bottom: 40px;
-}
-
-.more-btn a {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #0c363c;
-  color: white;
-  text-decoration: none;
-  font-size: 1.1em;
-  font-weight: bold;
-  border-radius: 4px;
-  transition: background-color 0.2s;
-}
-
-.more-btn a:hover {
-  background-color: #08282d;
-}
-
-/* Add Place Link Styling */
-.home-container > div:last-child a {
-  color: #777c90; /* Gray link color */
-  text-decoration: none;
-  font-size: 1em;
-  transition: color 0.2s;
-}
-
-.home-container > div:last-child a:hover {
-  color: #0c363c;
-  text-decoration: underline;
-}
-
-.login-prompt a {
-  color: #777c90; /* Gray link color */
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.login-prompt a:hover {
-  text-decoration: underline;
-  color: #0c363c; /* Accent hover color */
-}
-
-/* ==================================== */
-/* 5. JOB FORM STYLES                   */
-/* ==================================== */
+/* ======================================================= */
+/* 5. JOB FORM STYLES                                      */
+/* ======================================================= */
 
 /* Main Job Form Container (.jobFormContainer) */
 .jobFormContainer {
-  /* Aligns the form vertically in the center of the page (set by body styles) */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  /* Slightly wider than sign-in/register forms for more content */
-  max-width: 600px;
-  padding: 30px 20px;
-  text-align: center;
-
-  /* Pushes it down below the navigation bar */
-  margin-top: 50px;
-  margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+    padding: 30px 20px;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 /* Page Title */
 .jobFormContainer h2 {
-  font-size: 1.8em;
-  color: #0c363c;
-  margin-bottom: 30px;
+    font-size: 1.8em;
+    color: #0c363c;
+    margin-bottom: 30px;
 }
 
 /* Form Container */
 .jobFormContainer form {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 15px; /* Space between input groups */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
 /* Labels for inputs */
 .jobFormContainer label {
-  display: block;
-  text-align: left;
-  font-size: 1em;
-  font-weight: bold;
-  color: #333;
-  margin-top: 5px; /* Space above the label */
+    display: block;
+    text-align: left;
+    font-size: 1em;
+    font-weight: bold;
+    color: #333;
+    margin-top: 5px;
 }
 
 /* General Input Fields (Text, Number, Date, Time) and Textarea */
 .jobFormContainer input:not([type="submit"]),
 .jobFormContainer textarea {
-  width: 100%;
-  padding: 12px 18px;
-  border: 1px solid #ccc; /* Add a subtle border for clarity */
-  border-radius: 4px;
-  background-color: #f5f5f5; /* Very light gray background */
-  font-size: 1.1em;
-  color: #333;
-  box-sizing: border-box;
-  /* Ensure the date/time inputs have a uniform height */
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
+    width: 100%;
+    padding: 12px 18px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f5f5f5;
+    font-size: 1.1em;
+    color: #333;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }
 
 .jobFormContainer textarea {
-  resize: vertical; /* Allow vertical resizing only */
-  min-height: 120px; /* Decent size for description */
+    resize: vertical;
+    min-height: 120px;
 }
 
 .jobFormContainer input::placeholder,
 .jobFormContainer textarea::placeholder {
-  color: #777c90;
+    color: #777c90;
 }
 
 /* Time Input Group (From/To) */
 .timeInputGroup {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .timeInputGroup span {
-  font-size: 1em;
-  color: #333;
-  font-weight: normal;
+    font-size: 1em;
+    color: #333;
+    font-weight: normal;
 }
 
 .timeInputGroup input {
-  /* Distribute space equally between the two time inputs */
-  flex-grow: 1;
+    flex-grow: 1;
 }
 
 /* Post Button Style */
 .jobFormContainer button[type="submit"] {
-  width: 100%;
-  padding: 14px; /* Slightly larger button */
-  background-color: #0c363c; /* Dark accent color */
-  color: white;
-  border: none;
-  border-radius: 4px;
-  font-size: 1.3em;
-  cursor: pointer;
-  transition: background-color 0.2s;
-  margin-top: 25px; /* Extra space above the button */
+    width: 100%;
+    padding: 14px;
+    background-color: #0c363c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.3em;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: 25px;
 }
 
 .jobFormContainer button[type="submit"]:hover:not(:disabled) {
-  background-color: #08282d; /* Slightly darker shade on hover */
+    background-color: #08282d;
 }
 
 .jobFormContainer button[type="submit"]:disabled {
-  background-color: #a8a8a8;
-  cursor: not-allowed;
+    background-color: #a8a8a8;
+    cursor: not-allowed;
 }
 
-/* ==================================== */
-/* 7. PLACE FORM STYLES                 */
-/* ==================================== */
+/* ======================================================= */
+/* 6. HOME PAGE JOB GRID STYLES                            */
+/* ======================================================= */
+
+/* Main Home Container */
+.home-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+/* Page Title */
+.home-container h2 {
+    font-size: 2.2em;
+    color: #0c363c;
+    margin-bottom: 35px;
+    text-align: center;
+}
+
+/* Job Grid Layout */
+.job-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+/* Individual Job Card */
+.job-card {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: left;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.job-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Job Card Headings */
+.job-card h3 {
+    font-size: 1.4em;
+    color: #0c363c;
+    margin-top: 0;
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+
+/* Job Card Paragraphs (Location, Salary) */
+.job-card p {
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+/* Link inside the card (View Details) */
+.job-card a {
+    align-self: flex-start;
+    margin-top: 15px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #777c90;
+    transition: color 0.2s;
+}
+
+.job-card a:hover {
+    color: #0c363c;
+}
+
+/* See More Jobs Button Styling */
+.more-btn {
+    margin-bottom: 40px;
+}
+
+.more-btn a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #0c363c;
+    color: white;
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.more-btn a:hover {
+    background-color: #08282d;
+}
+
+/* Add Place Link Styling */
+.home-container > div:last-child a {
+    color: #777c90;
+    text-decoration: none;
+    font-size: 1em;
+    transition: color 0.2s;
+}
+
+.home-container > div:last-child a:hover {
+    color: #0c363c;
+    text-decoration: underline;
+}
+
+
+/* ======================================================= */
+/* 7. PLACE FORM STYLES                                    */
+/* ======================================================= */
 
 /* Main Place Form Container (.placeFormContainer) */
 .placeFormContainer {
-  /* Aligns the form vertically in the center of the page (set by body styles) */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  /* Same width as the Job Form */
-  max-width: 600px;
-  padding: 30px 20px;
-  text-align: center;
-
-  /* Pushes it down below the navigation bar */
-  margin-top: 50px;
-  margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+    padding: 30px 20px;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 /* Page Title */
 .placeFormContainer h2 {
-  font-size: 1.8em;
-  color: #0c363c;
-  margin-bottom: 30px;
+    font-size: 1.8em;
+    color: #0c363c;
+    margin-bottom: 30px;
 }
 
 /* Form Container */
 .placeFormContainer form {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 15px; /* Space between input groups */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
 /* Labels for inputs */
 .placeFormContainer label {
-  display: block;
-  text-align: left;
-  font-size: 1em;
-  font-weight: bold;
-  color: #333;
-  margin-top: 5px; /* Space above the label */
+    display: block;
+    text-align: left;
+    font-size: 1em;
+    font-weight: bold;
+    color: #333;
+    margin-top: 5px;
 }
 
 /* General Input Fields (Text, Number, Date, Time, File) and Textarea */
 .placeFormContainer input:not([type="submit"]),
 .placeFormContainer textarea {
-  width: 100%;
-  padding: 12px 18px;
-  border: 1px solid #ccc; /* Add a subtle border for clarity */
-  border-radius: 4px;
-  background-color: #f5f5f5; /* Very light gray background */
-  font-size: 1.1em;
-  color: #333;
-  box-sizing: border-box;
-  /* Ensure the date/time inputs have a uniform height */
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
+    width: 100%;
+    padding: 12px 18px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f5f5f5;
+    font-size: 1.1em;
+    color: #333;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }
 
 .placeFormContainer textarea {
-  resize: vertical; /* Allow vertical resizing only */
-  min-height: 120px; /* Decent size for description */
+    resize: vertical;
+    min-height: 120px;
 }
 
 .placeFormContainer input::placeholder,
 .placeFormContainer textarea::placeholder {
-  color: #777c90;
+    color: #777c90;
 }
 
 /* Time Input Group (From/To) */
 .timeInputGroup {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .timeInputGroup span {
-  font-size: 1em;
-  color: #333;
-  font-weight: normal;
+    font-size: 1em;
+    color: #333;
+    font-weight: normal;
 }
 
-/* ==================================== */
-/* 8. PLACE DETAILS STYLES              */
-/* ==================================== */
+.timeInputGroup input {
+    flex-grow: 1;
+}
+
+/* File Input (Images) Specific Styling */
+.placeFormContainer input[type="file"] {
+    padding: 10px 0;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+/* Post Button Style */
+.placeFormContainer button[type="submit"] {
+    width: 100%;
+    padding: 14px;
+    background-color: #0c363c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.3em;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: 25px;
+}
+
+.placeFormContainer button[type="submit"]:hover {
+    background-color: #08282d;
+}
+
+/* ======================================================= */
+/* 8. PLACE DETAILS STYLES                                 */
+/* ======================================================= */
 
 /* Main Details Container */
 .place-details {
     width: 100%;
-    /* Max width similar to job form for good reading length */
     max-width: 750px;
-    margin: 40px auto; /* Centers the container horizontally */
+    margin: 40px auto;
     padding: 30px;
     background-color: #ffffff;
     border-radius: 8px;
@@ -673,11 +664,11 @@ nav a[onClick]:hover {
     color: #0C363C;
     font-weight: bold;
     display: inline-block;
-    min-width: 100px; /* Aligns the data values */
+    min-width: 100px;
 }
 
 /* Description Textarea/Paragraph */
-.place-details p:last-of-type { /* Targeting the Description paragraph */
+.place-details p:last-of-type {
     padding-top: 15px;
     margin-top: 20px;
     border-top: 1px solid #f0f0f0;
@@ -690,12 +681,11 @@ nav a[onClick]:hover {
     gap: 15px;
     margin-top: 30px;
     margin-bottom: 30px;
-    justify-content: flex-start; /* Aligns images to the left */
+    justify-content: flex-start;
 }
 
 .place-details img {
-    /* Style for individual images from the map function */
-    width: 100%; /* Default to full width of the container for better display */
+    width: 100%;
     max-width: 350px;
     height: auto;
     border-radius: 6px;
@@ -710,7 +700,6 @@ nav a[onClick]:hover {
 /* --- Action Buttons and Links --- */
 .place-details > button,
 .place-details > a:not(.image-gallery) {
-    /* Base style for all action buttons and main links */
     display: inline-block;
     padding: 10px 20px;
     text-align: center;
@@ -720,13 +709,13 @@ nav a[onClick]:hover {
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.2s, opacity 0.2s;
-    margin-right: 15px; /* Space between buttons */
+    margin-right: 15px;
     margin-top: 25px;
     border: none;
 }
 
 /* Book Button */
-.place-details button:last-of-type { /* Targeting the Book button */
+.place-details button:last-of-type {
     background-color: #0C363C;
     color: white;
 }
@@ -737,7 +726,7 @@ nav a[onClick]:hover {
 
 /* Delete Button */
 .place-details .deletePlace {
-    background-color: #e84a4a; /* Red color for destructive action */
+    background-color: #e84a4a;
     color: white;
 }
 
@@ -746,7 +735,7 @@ nav a[onClick]:hover {
 }
 
 /* Back Link */
-.place-details a[href="/home"] { /* Targeting the "Back" link */
+.place-details a[href="/home"] {
     background-color: #f0f0f0;
     color: #333;
     border: 1px solid #ccc;
@@ -755,49 +744,17 @@ nav a[onClick]:hover {
 .place-details a[href="/home"]:hover {
     background-color: #e0e0e0;
 }
-.timeInputGroup input {
-  /* Distribute space equally between the two time inputs */
-  flex-grow: 1;
-}
 
-/* File Input (Images) Specific Styling */
-.placeFormContainer input[type="file"] {
-  /* Reset padding for file input */
-  padding: 10px 0;
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-  font-size: 1em;
-}
 
-/* Post Button Style */
-.placeFormContainer button[type="submit"] {
-  width: 100%;
-  padding: 14px; /* Slightly larger button */
-  background-color: #0c363c; /* Dark accent color */
-  color: white;
-  border: none;
-  border-radius: 4px;
-  font-size: 1.3em;
-  cursor: pointer;
-  transition: background-color 0.2s;
-  margin-top: 25px; /* Extra space above the button */
-}
-
-.placeFormContainer button[type="submit"]:hover {
-  background-color: #08282d; /* Slightly darker shade on hover */
-}
-
-/* ==================================== */
-/* 9. JOB DETAILS STYLES                */
-/* ==================================== */
+/* ======================================================= */
+/* 9. JOB DETAILS STYLES                                   */
+/* ======================================================= */
 
 /* Main Details Container */
 .job-details {
     width: 100%;
-    /* Max width similar to place details for good reading length */
     max-width: 750px;
-    margin: 40px auto; /* Centers the container horizontally */
+    margin: 40px auto;
     padding: 30px;
     background-color: #ffffff;
     border-radius: 8px;
@@ -826,21 +783,20 @@ nav a[onClick]:hover {
     color: #0C363C;
     font-weight: bold;
     display: inline-block;
-    min-width: 100px; /* Aligns the data values */
+    min-width: 100px;
 }
 
 /* Description Textarea/Paragraph */
-.job-details p:last-of-type { /* Targeting the Description paragraph */
+.job-details p:last-of-type {
     padding-top: 15px;
     margin-top: 20px;
     border-top: 1px solid #f0f0f0;
-    margin-bottom: 25px; /* Added space before buttons */
+    margin-bottom: 25px;
 }
 
 /* --- Action Buttons and Links --- */
 .job-details > button,
 .job-details > a {
-    /* Base style for all action buttons and main links */
     display: inline-block;
     padding: 10px 20px;
     text-align: center;
@@ -850,13 +806,13 @@ nav a[onClick]:hover {
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.2s, opacity 0.2s;
-    margin-right: 15px; /* Space between buttons */
+    margin-right: 15px;
     margin-top: 15px;
     border: none;
 }
 
 /* Apply Button */
-.job-details button:last-of-type { /* Targeting the Apply button */
+.job-details button:last-of-type {
     background-color: #0C363C;
     color: white;
 }
@@ -867,7 +823,7 @@ nav a[onClick]:hover {
 
 /* Delete Button */
 .job-details .deletejob {
-    background-color: #e84a4a; /* Red color for destructive action */
+    background-color: #e84a4a;
     color: white;
 }
 
@@ -876,7 +832,7 @@ nav a[onClick]:hover {
 }
 
 /* Back Link */
-.job-details a[href="/home"] { /* Targeting the "Back" link */
+.job-details a[href="/home"] {
     background-color: #f0f0f0;
     color: #333;
     border: 1px solid #ccc;
@@ -886,9 +842,9 @@ nav a[onClick]:hover {
     background-color: #e0e0e0;
 }
 
-/* ==================================== */
-/* 10. USER PROFILE STYLES (FINAL & CORRECTED) */
-/* ==================================== */
+/* ======================================================= */
+/* 10. USER PROFILE STYLES                                 */
+/* ======================================================= */
 
 /* Main Profile Container */
 .profile-container {
@@ -904,15 +860,14 @@ nav a[onClick]:hover {
 
 /* Profile Image (Now the first element) */
 .profile-container img {
-    /* Make sure the image is visually distinct and centered */
     width: 180px;
     height: 180px;
-    border-radius: 50%; /* Circular profile picture */
+    border-radius: 50%;
     object-fit: cover;
-    margin: 0 auto 35px auto; /* Add space below image */
-    border: 4px solid #0C363C; /* Accent color border */
+    margin: 0 auto 35px auto;
+    border: 4px solid #0C363C;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    display: block; /* Ensures it centers with margin: auto */
+    display: block;
 }
 
 /* User Info Headings (h4) */
@@ -922,33 +877,25 @@ nav a[onClick]:hover {
     margin: 10px 0;
     color: #333;
     text-align: left;
-    display: flex; /* Use flex to align label and value */
+    display: flex;
     padding-left: 20px;
 }
 
 /* Base style for the injected label (Before the h4 content) */
-/* Selector indices are offset by 1 because the image is the 1st element */
 .profile-container h4::before {
-    content: ""; /* Will be overridden by specific content below */
+    content: "";
     font-weight: bold;
     color: #0C363C;
-    /* Use a fixed width to align the start of the data values */
     min-width: 120px;
     margin-right: 5px;
 }
 
 /* Specific Labels using :nth-child to target the correct h4 */
-/* h4:nth-child(2) -> user.firstName */
 .profile-container h4:nth-child(2)::before { content: "First Name:"; }
-/* h4:nth-child(3) -> user.lastName */
 .profile-container h4:nth-child(3)::before { content: "Last Name:"; }
-/* h4:nth-child(4) -> user.email */
 .profile-container h4:nth-child(4)::before { content: "Email:"; }
-/* h4:nth-child(5) -> user.mobileNumber */
 .profile-container h4:nth-child(5)::before { content: "Mobile:"; }
-/* h4:nth-child(6) -> user.bio */
 .profile-container h4:nth-child(6)::before { content: "Bio:"; }
-
 
 /* Bio Styling (h4:nth-child(6)) */
 .profile-container h4:nth-child(6) {
@@ -958,13 +905,22 @@ nav a[onClick]:hover {
     display: block;
 }
 
-/* The empty h4 at the end (h4:nth-child(7)) - Hide it unless you need it */
+/* The 'images:' label (h4:nth-child(7)) */
 .profile-container h4:nth-child(7) {
-    display: none;
+    display: block;
+    text-align: center;
+    color: #333;
+    font-weight: bold;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    padding-left: 0;
+}
+.profile-container h4:nth-child(7)::before {
+    content: none;
 }
 
 
-/* Edit Profile Button - (Assuming the button follows the h4 elements) */
+/* Edit Profile Button */
 .profile-container button {
     display: inline-block;
     padding: 12px 25px;
@@ -984,16 +940,15 @@ nav a[onClick]:hover {
     background-color: #08282d;
 }
 
-/* ==================================== */
-/* 11. PLACE LIST STYLES (GRID)         */
-/* ==================================== */
+/* ======================================================= */
+/* 11. PLACE LIST STYLES (GRID)                            */
+/* ======================================================= */
 
 /* Main Place List Container */
 .place-list {
     width: 100%;
-    /* Max width consistent with the Home component */
     max-width: 1200px;
-    margin: 40px auto; /* Centers the container horizontally and adds vertical space */
+    margin: 40px auto;
     padding: 0 20px;
     text-align: center;
 }
@@ -1009,9 +964,8 @@ nav a[onClick]:hover {
 /* Place Grid Layout */
 .place-grid {
     display: grid;
-    /* Create responsive columns: 4 columns on desktop, wraps down to 2, then 1 */
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px; /* Space between the cards */
+    gap: 30px;
     margin-bottom: 40px;
 }
 
@@ -1026,15 +980,15 @@ nav a[onClick]:hover {
     flex-direction: column;
     justify-content: space-between;
     text-align: left;
-    text-decoration: none; /* Remove underline from the Link */
-    color: inherit; /* Inherit text color */
+    text-decoration: none;
+    color: inherit;
     transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
 }
 
 .place-card:hover {
-    transform: translateY(-5px); /* Lift effect on hover */
+    transform: translateY(-5px);
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-    border-color: #0C363C; /* Highlight border on hover */
+    border-color: #0C363C;
 }
 
 /* Place Card Headings (Name/Title) */
@@ -1056,6 +1010,142 @@ nav a[onClick]:hover {
 /* Price/Salary Highlight */
 .place-card p:last-of-type {
     font-weight: bold;
-    color: #0C363C; /* Highlight the price */
+    color: #0C363C;
     margin-top: 10px;
+}
+
+
+/* ======================================================= */
+/* 12. MEDIA QUERIES (RESPONSIVENESS)                      */
+/* ======================================================= */
+
+/* ---------------------------------- */
+/* TABLET/SMALL LAPTOP (MAX 1024px)   */
+/* ---------------------------------- */
+@media (max-width: 1024px) {
+    /* Reduce overall side padding for all main containers */
+    .home-container, .place-list, .place-details, .job-details, .profile-container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+
+/* ---------------------------------- */
+/* MOBILE DEVICES (MAX 768px)         */
+/* ---------------------------------- */
+@media (max-width: 768px) {
+
+    /* --- NAVIGATION BAR FIX --- */
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 20px;
+        height: auto;
+        padding-bottom: 5px;
+    }
+
+    /* Adjust body padding to accommodate the taller mobile header */
+    body {
+        padding-top: 90px;
+    }
+
+    nav {
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+        margin-top: 5px;
+    }
+
+    nav a, nav h3 {
+        font-size: 0.9em;
+        margin-bottom: 5px;
+    }
+
+    /* --- SIGN-IN / REGISTER / FORM FIXES --- */
+    .signin, .register-container, .jobFormContainer, .placeFormContainer {
+        max-width: 95%;
+        padding: 20px 15px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+    /* Forms - Reduce Title Size */
+    .signin h2, .register-container h2, .jobFormContainer h2, .placeFormContainer h2 {
+        font-size: 1.6em;
+        margin-bottom: 20px;
+    }
+
+    /* Sign In Image - make it smaller */
+    .signin img {
+        max-width: 80%;
+    }
+
+    /* Time Input Group - Stack/Wrap */
+    .timeInputGroup {
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+    .timeInputGroup span {
+        width: 100%;
+        text-align: left;
+    }
+    .timeInputGroup input {
+        flex-basis: 48%;
+    }
+
+    /* --- GRID FIXES (HOME, PLACE LIST) --- */
+    .job-grid, .place-grid {
+        /* Ensures only 1 column is shown on small screens */
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .home-container h2, .place-list h2 {
+        font-size: 1.8em;
+    }
+
+    /* --- DETAILS PAGE FIXES (JOB, PLACE) --- */
+    .job-details, .place-details {
+        padding: 20px 15px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+    /* Detail Titles */
+    .job-details h2, .place-details h2 {
+        font-size: 2em;
+    }
+
+    /* Detail Paragraphs - prevent horizontal scroll */
+    .job-details p strong, .place-details p strong {
+        min-width: 80px;
+        display: block; /* Force strong label to its own line on tiny screens */
+        margin-bottom: 5px;
+    }
+
+    /* Action Buttons - Stack/Full Width */
+    .job-details > button, .job-details > a,
+    .place-details > button, .place-details > a:not(.image-gallery) {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+    }
+
+    /* --- PROFILE PAGE FIXES --- */
+    .profile-container {
+        padding: 20px 15px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+    .profile-container h4 {
+        padding-left: 0;
+        flex-wrap: wrap;
+    }
+    .profile-container h4::before {
+        min-width: 100%; /* Label takes full width on its own line */
+        margin-bottom: 5px;
+    }
 }
