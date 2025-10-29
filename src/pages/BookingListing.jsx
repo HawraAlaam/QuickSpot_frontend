@@ -26,7 +26,7 @@ const BookingListing = ({ user }) => {
     <div className="booking-list">
       <h2>Bookings</h2>
       <div className="booking-grid">
-        <h1>Jobs</h1>
+
         {bookings && user ? (
           bookings.map((booking) => (
             <div className="booking-card" key={booking._id}>
@@ -41,7 +41,7 @@ const BookingListing = ({ user }) => {
                     <p>
                       {booking.from} to {booking.to}
                     </p>
-                    <Link to={"/home"}> Back </Link>
+
                     <Link to={`/bookings/${booking._id}`}>
                       <button>Complete</button>
                     </Link>
@@ -56,7 +56,6 @@ const BookingListing = ({ user }) => {
                     <p>
                       {booking.from} to {booking.to}
                     </p>
-                    <Link to={"/home"}> Back </Link>
                     <Link to={`/bookings/${booking._id}`}>
                       <button>Complete</button>
                     </Link>
@@ -68,6 +67,7 @@ const BookingListing = ({ user }) => {
         ) : (
           <p>No bookings found.</p>
         )}
+         <Link to={"/home"}> Back </Link>
       </div>
     </div>
   ) : null
