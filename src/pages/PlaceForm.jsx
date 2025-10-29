@@ -13,30 +13,44 @@ const PlaceForm = () => {
     to: "",
     description: "",
     location: "",
-    images: [""],
+    images: null,
   }
 
-  const [formValue, setFormValue] = useState(initialState)
+  const [formValues, setFormValues] = useState(initialState)
   const [place, setPlace] = useState(null)
 
-  const handleChange = (event) => {
-    setFormValue({ ...formValue, [event.target.name]: event.target.value })
-  }
-
-   const handleImageChange = (event) => {
-    const files = Array.from(event.target.files)
-    setFormValue({ ...formValue, images: files })
+  const handleChange = (e) => {
+    const { id, type, files, value } = e.target
+    setFormValues({
+      ...formValues,
+      [e.target.name]: e.target.value,
+      [id]: type === "file" ? files : value,
+    })
   }
 
   const handleSubmit = async (event) => {
     event.preventDefault()
     //set item
+    localStorage.setItem("imageUpload", "true")
+
+    const formData = new FormData()
+    formData.append("name", formValues.name)
+    formData.append("price", formValues.price)
+    formData.append("date", formValues.date)
+    formData.append("from", formValues.from)
+    formData.append("to", formValues.to)
+    formData.append("description", formValues.description)
+    formData.append("location", formValues.location)
+
+    for (let i = 0; i < formValues.images.length; i++) {
+      formData.append("images", formValues.images[i])
+    }
     //clear item
-    const response = await Client.post("/place", formValue)
-    console.log(response)
+    const response = await Client.post("/place", formData)
     setPlace(response.data)
-    setFormValue(initialState)
+    setFormValues(initialState)
     navigate(`/place/${response.data._id}`)
+    localStorage.removeItem("imageUpload")
   }
 
   return (
@@ -48,7 +62,7 @@ const PlaceForm = () => {
         <input
           type="text"
           name="name"
-          value={formValue.name}
+          value={formValues.name}
           onChange={handleChange}
           placeholder="Place Title"
           required
@@ -58,7 +72,7 @@ const PlaceForm = () => {
         <input
           type="number"
           name="price"
-          value={formValue.price}
+          value={formValues.price}
           onChange={handleChange}
           placeholder="Price (e.g., 50 NOTE: AMOUNT WILL BE IN BAHRAINI DINARS)"
           required
@@ -68,7 +82,7 @@ const PlaceForm = () => {
         <input
           type="date"
           name="date"
-          value={formValue.date}
+          value={formValues.date}
           onChange={handleChange}
           required
         />
@@ -79,7 +93,7 @@ const PlaceForm = () => {
           <input
             type="time"
             name="from"
-            value={formValue.from}
+            value={formValues.from}
             onChange={handleChange}
             required
           />
@@ -87,7 +101,7 @@ const PlaceForm = () => {
           <input
             type="time"
             name="to"
-            value={formValue.to}
+            value={formValues.to}
             onChange={handleChange}
             required
           />
@@ -97,7 +111,7 @@ const PlaceForm = () => {
         <input
           type="text"
           name="location"
-          value={formValue.location}
+          value={formValues.location}
           onChange={handleChange}
           placeholder="e.g., Manama"
           required
@@ -106,7 +120,7 @@ const PlaceForm = () => {
         <label htmlFor="description">Description</label>
         <textarea
           name="description"
-          value={formValue.description}
+          value={formValues.description}
           onChange={handleChange}
           placeholder="Detailed place description..."
           required
@@ -114,8 +128,10 @@ const PlaceForm = () => {
         <label htmlFor="images">Images</label>
         <input
           type="file"
+          id="images"
           name="images"
-          onChange={handleImageChange}
+          onChange={handleChange}
+          multiple
         />
         <button type="submit">Post</button>
       </form>

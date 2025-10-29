@@ -17,6 +17,8 @@ const JobDetails = () => {
       }
     }
 
+    console.log(job)
+
     getJob()
   }, [id])
   const handleDelete = async () => {
@@ -26,6 +28,17 @@ const JobDetails = () => {
     } catch (error) {
       console.error("Error deleting job:", error)
     }
+  }
+
+  const handleSubmit = async () => {
+    await Client.post(`/bookings`, {
+      type: "job",
+      place: job.title,
+      date: job.date,
+      from: job.from,
+      to: job.to,
+    })
+    navigate("/bookings")
   }
   if (!job) return <p>Loading job details...</p>
 
@@ -58,6 +71,8 @@ const JobDetails = () => {
       <button onClick={handleDelete} className="deletejob">
         Delete
       </button>
+
+      <button onClick={handleSubmit}>Apply</button>
     </div>
   )
 }
