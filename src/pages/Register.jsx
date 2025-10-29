@@ -14,6 +14,7 @@ const Register = () => {
     confirmPassword: "",
     mobileNumber: "",
     image: "",
+
   }
 
   const [formValues, setFormValues] = useState(initialState)
@@ -28,6 +29,10 @@ const Register = () => {
   }
 
   const handleSubmit = async (e) => {
+     if (formValues.password !== formValues.confirmPassword) {
+    setMessage("Passwords do not match!")
+    return
+  }
     e.preventDefault()
     const formData = new FormData()
     formData.append("firstName", formValues.firstName)
@@ -126,8 +131,8 @@ const Register = () => {
             !formValues.email ||
             !formValues.mobileNumber ||
             !formValues.password ||
-            formValues.password !== formValues.confirmPassword
-            // formValues.password.length < 8
+            formValues.password !== formValues.confirmPassword ||
+            formValues.password.length < 8
           }
         >
           Confirm

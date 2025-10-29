@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { useNavigate, useParams } from "react-router-dom"
+import { useNavigate, useParams, Link} from "react-router-dom"
 import Client from "../services/api"
 
 const EditPassword = () => {
@@ -57,6 +57,9 @@ const EditPassword = () => {
 
         <button>Change</button>
       </form>
+      <Link to={`/profile/${user.id}`}>
+      <button>Cancle</button>
+      </Link>
     </div>
   )
 }
