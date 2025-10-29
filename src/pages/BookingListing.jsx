@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import Client from "../services/api"
 import { Link, useNavigate, useParams } from "react-router-dom"
 
-const BookingListing = () => {
+const BookingListing = ({ user }) => {
   const { bookingId } = useParams()
   let navigate = useNavigate()
   const [bookings, setBookings] = useState([])
@@ -22,43 +22,45 @@ const BookingListing = () => {
     getBookings()
   }, [])
 
-  return (
+  return user ? (
     <div className="booking-list">
       <h2>Bookings</h2>
       <div className="booking-grid">
         <h1>Jobs</h1>
-        {bookings ? (
+        {bookings && user ? (
           bookings.map((booking) => (
             <div className="booking-card" key={booking._id}>
-              {booking.type === "job" ? (
-                <div className="job-booking">
-                  <p>
-                    <b>Job:</b>
-                  </p>
-                  <p>{booking.place}</p>
-                  <p>{booking.date}</p>
-                  <p>
-                    {booking.from} to {booking.to}
-                  </p>
-                  <Link to={`/bookings/${booking._id}`}>
-                    <button>Complete</button>
-                  </Link>
-                </div>
-              ) : (
-                <div className="place-booking">
-                  <p>
-                    <b>Place:</b>
-                  </p>
-                  <p>{booking.place}</p>
-                  <p>{booking.date}</p>
-                  <p>
-                    {booking.from} to {booking.to}
-                  </p>
-                  <Link to={`/bookings/${booking._id}`}>
-                    <button>Complete</button>
-                  </Link>
-                </div>
-              )}
+              {user.id === booking.owner._id ? (
+                booking.type === "job" ? (
+                  <div className="job-booking">
+                    <p>
+                      <b>Job:</b>
+                    </p>
+                    <p>{booking.place}</p>
+                    <p>{booking.date}</p>
+                    <p>
+                      {booking.from} to {booking.to}
+                    </p>
+                    <Link to={`/bookings/${booking._id}`}>
+                      <button>Complete</button>
+                    </Link>
+                  </div>
+                ) : (
+                  <div className="place-booking">
+                    <p>
+                      <b>Place:</b>
+                    </p>
+                    <p>{booking.place}</p>
+                    <p>{booking.date}</p>
+                    <p>
+                      {booking.from} to {booking.to}
+                    </p>
+                    <Link to={`/bookings/${booking._id}`}>
+                      <button>Complete</button>
+                    </Link>
+                  </div>
+                )
+              ) : null}
             </div>
           ))
         ) : (
@@ -66,7 +68,7 @@ const BookingListing = () => {
         )}
       </div>
     </div>
-  )
+  ) : null
 }
 
 export default BookingListing

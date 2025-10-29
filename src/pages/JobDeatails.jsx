@@ -37,6 +37,7 @@ const JobDetails = ({ user }) => {
       date: job.date,
       from: job.from,
       to: job.to,
+      owner: user.id,
     })
     await Client.delete(`/jobs/${id}`)
     navigate("/bookings")
