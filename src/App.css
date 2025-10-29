@@ -308,3 +308,117 @@ nav a[onClick]:hover {
     text-decoration: underline;
     color: #0C363C; /* Accent hover color */
 }
+
+/* ==================================== */
+/* 5. JOB FORM STYLES                   */
+/* ==================================== */
+
+/* Main Job Form Container (.jobFormContainer) */
+.jobFormContainer {
+    /* Aligns the form vertically in the center of the page (set by body styles) */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    /* Slightly wider than sign-in/register forms for more content */
+    max-width: 600px;
+    padding: 30px 20px;
+    text-align: center;
+
+    /* Pushes it down below the navigation bar */
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+/* Page Title */
+.jobFormContainer h2 {
+    font-size: 1.8em;
+    color: #0C363C;
+    margin-bottom: 30px;
+}
+
+/* Form Container */
+.jobFormContainer form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Space between input groups */
+}
+
+/* Labels for inputs */
+.jobFormContainer label {
+    display: block;
+    text-align: left;
+    font-size: 1em;
+    font-weight: bold;
+    color: #333;
+    margin-top: 5px; /* Space above the label */
+}
+
+/* General Input Fields (Text, Number, Date, Time) and Textarea */
+.jobFormContainer input:not([type="submit"]),
+.jobFormContainer textarea {
+    width: 100%;
+    padding: 12px 18px;
+    border: 1px solid #ccc; /* Add a subtle border for clarity */
+    border-radius: 4px;
+    background-color: #f5f5f5; /* Very light gray background */
+    font-size: 1.1em;
+    color: #333;
+    box-sizing: border-box;
+    /* Ensure the date/time inputs have a uniform height */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.jobFormContainer textarea {
+    resize: vertical; /* Allow vertical resizing only */
+    min-height: 120px; /* Decent size for description */
+}
+
+.jobFormContainer input::placeholder,
+.jobFormContainer textarea::placeholder {
+    color: #777c90;
+}
+
+/* Time Input Group (From/To) */
+.timeInputGroup {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.timeInputGroup span {
+    font-size: 1em;
+    color: #333;
+    font-weight: normal;
+}
+
+.timeInputGroup input {
+    /* Distribute space equally between the two time inputs */
+    flex-grow: 1;
+}
+
+/* Post Button Style */
+.jobFormContainer button[type="submit"] {
+    width: 100%;
+    padding: 14px; /* Slightly larger button */
+    background-color: #0C363C; /* Dark accent color */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.3em;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: 25px; /* Extra space above the button */
+}
+
+.jobFormContainer button[type="submit"]:hover:not(:disabled) {
+    background-color: #08282d; /* Slightly darker shade on hover */
+}
+
+.jobFormContainer button[type="submit"]:disabled {
+    background-color: #a8a8a8;
+    cursor: not-allowed;
+}
