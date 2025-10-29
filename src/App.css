@@ -423,3 +423,368 @@ nav a[onClick]:hover {
   color: #0c363c;
   text-decoration: underline;
 }
+
+.login-prompt a {
+  color: #777c90; /* Gray link color */
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.login-prompt a:hover {
+  text-decoration: underline;
+  color: #0c363c; /* Accent hover color */
+}
+
+/* ==================================== */
+/* 5. JOB FORM STYLES                   */
+/* ==================================== */
+
+/* Main Job Form Container (.jobFormContainer) */
+.jobFormContainer {
+  /* Aligns the form vertically in the center of the page (set by body styles) */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  /* Slightly wider than sign-in/register forms for more content */
+  max-width: 600px;
+  padding: 30px 20px;
+  text-align: center;
+
+  /* Pushes it down below the navigation bar */
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+/* Page Title */
+.jobFormContainer h2 {
+  font-size: 1.8em;
+  color: #0c363c;
+  margin-bottom: 30px;
+}
+
+/* Form Container */
+.jobFormContainer form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Space between input groups */
+}
+
+/* Labels for inputs */
+.jobFormContainer label {
+  display: block;
+  text-align: left;
+  font-size: 1em;
+  font-weight: bold;
+  color: #333;
+  margin-top: 5px; /* Space above the label */
+}
+
+/* General Input Fields (Text, Number, Date, Time) and Textarea */
+.jobFormContainer input:not([type="submit"]),
+.jobFormContainer textarea {
+  width: 100%;
+  padding: 12px 18px;
+  border: 1px solid #ccc; /* Add a subtle border for clarity */
+  border-radius: 4px;
+  background-color: #f5f5f5; /* Very light gray background */
+  font-size: 1.1em;
+  color: #333;
+  box-sizing: border-box;
+  /* Ensure the date/time inputs have a uniform height */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.jobFormContainer textarea {
+  resize: vertical; /* Allow vertical resizing only */
+  min-height: 120px; /* Decent size for description */
+}
+
+.jobFormContainer input::placeholder,
+.jobFormContainer textarea::placeholder {
+  color: #777c90;
+}
+
+/* Time Input Group (From/To) */
+.timeInputGroup {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.timeInputGroup span {
+  font-size: 1em;
+  color: #333;
+  font-weight: normal;
+}
+
+.timeInputGroup input {
+  /* Distribute space equally between the two time inputs */
+  flex-grow: 1;
+}
+
+/* Post Button Style */
+.jobFormContainer button[type="submit"] {
+  width: 100%;
+  padding: 14px; /* Slightly larger button */
+  background-color: #0c363c; /* Dark accent color */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1.3em;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-top: 25px; /* Extra space above the button */
+}
+
+.jobFormContainer button[type="submit"]:hover:not(:disabled) {
+  background-color: #08282d; /* Slightly darker shade on hover */
+}
+
+.jobFormContainer button[type="submit"]:disabled {
+  background-color: #a8a8a8;
+  cursor: not-allowed;
+}
+
+/* ==================================== */
+/* 7. PLACE FORM STYLES                 */
+/* ==================================== */
+
+/* Main Place Form Container (.placeFormContainer) */
+.placeFormContainer {
+  /* Aligns the form vertically in the center of the page (set by body styles) */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  /* Same width as the Job Form */
+  max-width: 600px;
+  padding: 30px 20px;
+  text-align: center;
+
+  /* Pushes it down below the navigation bar */
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+/* Page Title */
+.placeFormContainer h2 {
+  font-size: 1.8em;
+  color: #0c363c;
+  margin-bottom: 30px;
+}
+
+/* Form Container */
+.placeFormContainer form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Space between input groups */
+}
+
+/* Labels for inputs */
+.placeFormContainer label {
+  display: block;
+  text-align: left;
+  font-size: 1em;
+  font-weight: bold;
+  color: #333;
+  margin-top: 5px; /* Space above the label */
+}
+
+/* General Input Fields (Text, Number, Date, Time, File) and Textarea */
+.placeFormContainer input:not([type="submit"]),
+.placeFormContainer textarea {
+  width: 100%;
+  padding: 12px 18px;
+  border: 1px solid #ccc; /* Add a subtle border for clarity */
+  border-radius: 4px;
+  background-color: #f5f5f5; /* Very light gray background */
+  font-size: 1.1em;
+  color: #333;
+  box-sizing: border-box;
+  /* Ensure the date/time inputs have a uniform height */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.placeFormContainer textarea {
+  resize: vertical; /* Allow vertical resizing only */
+  min-height: 120px; /* Decent size for description */
+}
+
+.placeFormContainer input::placeholder,
+.placeFormContainer textarea::placeholder {
+  color: #777c90;
+}
+
+/* Time Input Group (From/To) */
+.timeInputGroup {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.timeInputGroup span {
+  font-size: 1em;
+  color: #333;
+  font-weight: normal;
+}
+
+/* ==================================== */
+/* 8. PLACE DETAILS STYLES              */
+/* ==================================== */
+
+/* Main Details Container */
+.place-details {
+    width: 100%;
+    /* Max width similar to job form for good reading length */
+    max-width: 750px;
+    margin: 40px auto; /* Centers the container horizontally */
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    text-align: left;
+}
+
+/* Place Name Title */
+.place-details h2 {
+    font-size: 2.5em;
+    color: #0C363C;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 15px;
+}
+
+/* Detail Paragraphs */
+.place-details p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 12px;
+    color: #333;
+}
+
+.place-details p strong {
+    color: #0C363C;
+    font-weight: bold;
+    display: inline-block;
+    min-width: 100px; /* Aligns the data values */
+}
+
+/* Description Textarea/Paragraph */
+.place-details p:last-of-type { /* Targeting the Description paragraph */
+    padding-top: 15px;
+    margin-top: 20px;
+    border-top: 1px solid #f0f0f0;
+}
+
+/* --- Image Gallery/Preview Section --- */
+.place-details > .image-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    justify-content: flex-start; /* Aligns images to the left */
+}
+
+.place-details img {
+    /* Style for individual images from the map function */
+    width: 100%; /* Default to full width of the container for better display */
+    max-width: 350px;
+    height: auto;
+    border-radius: 6px;
+    object-fit: cover;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+.place-details img:hover {
+    transform: scale(1.02);
+}
+
+/* --- Action Buttons and Links --- */
+.place-details > button,
+.place-details > a:not(.image-gallery) {
+    /* Base style for all action buttons and main links */
+    display: inline-block;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1em;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s, opacity 0.2s;
+    margin-right: 15px; /* Space between buttons */
+    margin-top: 25px;
+    border: none;
+}
+
+/* Book Button */
+.place-details button:last-of-type { /* Targeting the Book button */
+    background-color: #0C363C;
+    color: white;
+}
+
+.place-details button:last-of-type:hover {
+    background-color: #08282d;
+}
+
+/* Delete Button */
+.place-details .deletePlace {
+    background-color: #e84a4a; /* Red color for destructive action */
+    color: white;
+}
+
+.place-details .deletePlace:hover {
+    background-color: #c73737;
+}
+
+/* Back Link */
+.place-details a[href="/home"] { /* Targeting the "Back" link */
+    background-color: #f0f0f0;
+    color: #333;
+    border: 1px solid #ccc;
+}
+
+.place-details a[href="/home"]:hover {
+    background-color: #e0e0e0;
+}
+.timeInputGroup input {
+  /* Distribute space equally between the two time inputs */
+  flex-grow: 1;
+}
+
+/* File Input (Images) Specific Styling */
+.placeFormContainer input[type="file"] {
+  /* Reset padding for file input */
+  padding: 10px 0;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+/* Post Button Style */
+.placeFormContainer button[type="submit"] {
+  width: 100%;
+  padding: 14px; /* Slightly larger button */
+  background-color: #0c363c; /* Dark accent color */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1.3em;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-top: 25px; /* Extra space above the button */
+}
+
+.placeFormContainer button[type="submit"]:hover {
+  background-color: #08282d; /* Slightly darker shade on hover */
+}
+  

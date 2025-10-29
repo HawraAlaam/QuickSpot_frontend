@@ -9,13 +9,13 @@ Client.interceptors.request.use(
   async (config) => {
     // Reads the token in localStorage
     const token = localStorage.getItem("token")
-    const imageUpload = localStorage.getItem("imageUpload")
     // if the token exists, we set the authorization header
+    console.log(token)
     if (token) {
       config.headers["authorization"] = `Bearer ${token}`
     }
     // We return the new config if the token exists or the default config if no token exists.
-    if (imageUpload === "true") {
+    if (config.data instanceof FormData && !config.headers["Content-Type"]) {
       config.headers["Content-Type"] = "multipart/form-data"
     }
     return config
