@@ -45,6 +45,7 @@ const App = () => {
     <>
       <Nav user={user} handleLogOut={handleLogOut} />
       <main>
+        
         <Routes>
           <Route path="/" element={<Welcome />} />
           <Route path="/register" element={<Register />} />
