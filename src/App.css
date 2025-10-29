@@ -983,3 +983,79 @@ nav a[onClick]:hover {
 .profile-container button:hover {
     background-color: #08282d;
 }
+
+/* ==================================== */
+/* 11. PLACE LIST STYLES (GRID)         */
+/* ==================================== */
+
+/* Main Place List Container */
+.place-list {
+    width: 100%;
+    /* Max width consistent with the Home component */
+    max-width: 1200px;
+    margin: 40px auto; /* Centers the container horizontally and adds vertical space */
+    padding: 0 20px;
+    text-align: center;
+}
+
+/* Page Title */
+.place-list h2 {
+    font-size: 2.2em;
+    color: #0C363C;
+    margin-bottom: 35px;
+    text-align: center;
+}
+
+/* Place Grid Layout */
+.place-grid {
+    display: grid;
+    /* Create responsive columns: 4 columns on desktop, wraps down to 2, then 1 */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px; /* Space between the cards */
+    margin-bottom: 40px;
+}
+
+/* Individual Place Card (Link) */
+.place-card {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: left;
+    text-decoration: none; /* Remove underline from the Link */
+    color: inherit; /* Inherit text color */
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+
+.place-card:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    border-color: #0C363C; /* Highlight border on hover */
+}
+
+/* Place Card Headings (Name/Title) */
+.place-card h3 {
+    font-size: 1.4em;
+    color: #0C363C;
+    margin-top: 0;
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+
+/* Place Card Paragraphs (Location, Price) */
+.place-card p {
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+/* Price/Salary Highlight */
+.place-card p:last-of-type {
+    font-weight: bold;
+    color: #0C363C; /* Highlight the price */
+    margin-top: 10px;
+}
