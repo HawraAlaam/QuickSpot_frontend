@@ -21,6 +21,9 @@ const PlaceList = ({ user }) => {
 
   return user ? (
     <div className="place-list">
+      <Link to={`/placeForm`}>
+        <button>Add New Place</button>
+      </Link>
       <h2>Available places</h2>
       <div className="place-grid">
         {places.length ? (
@@ -31,8 +34,11 @@ const PlaceList = ({ user }) => {
               className="place-card"
             >
               <h3>{place.name}</h3>
-              <p>{place.location}</p>
-              <p>${place.price}</p>
+              <h4>Date: {place.date}</h4>
+              <h4>
+                Time: {place.from} - {place.to}
+              </h4>
+              <h4>Price: {place.price} BD</h4>
             </Link>
           ))
         ) : (

@@ -77,9 +77,9 @@ const JobDetails = ({ user }) => {
         <button onClick={handleDelete} className="deletejob">
           Delete
         </button>
-      ) : null}
-
-      <button onClick={handleSubmit}>Apply</button>
+      ) : (
+        <button onClick={handleSubmit}>Apply</button>
+      )}
     </div>
   ) : null
 }

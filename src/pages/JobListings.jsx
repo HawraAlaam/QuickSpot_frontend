@@ -21,14 +21,20 @@ const JobList = () => {
 
   return (
     <div className="job-list">
+      <Link to={`/jobForm`}>
+        <button>Add New Job</button>
+      </Link>
       <h2>Available Jobs</h2>
       <div className="job-grid">
         {jobs.length ? (
           jobs.map((job) => (
             <Link to={`/jobs/${job._id}`} key={job._id} className="job-card">
               <h3>{job.title}</h3>
-              <p>{job.location}</p>
-              <p>${job.salary}</p>
+              <h4>Date: {job.date}</h4>
+              <h4>
+                Time: {job.from} - {job.to}
+              </h4>
+              <h4>Salary: {job.salary} BD</h4>
             </Link>
           ))
         ) : (

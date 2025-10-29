@@ -33,7 +33,7 @@ const EditPassword = () => {
     })
     setUser(response.data)
     setFormValues(initialState)
-    navigate(`profile/edit/${id}`)
+    navigate(`/profile/edit/${id}`)
   }
 
   return (
