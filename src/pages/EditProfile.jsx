@@ -3,9 +3,9 @@ import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
 import { useNavigate } from "react-router-dom"
 
-const EditProfile = ({}) => {
+const EditProfile = () => {
   const { id } = useParams()
-  const [user, setUser] = useState([])
+  const [user, setUser] = useState({})
   let navigate = useNavigate()
   useEffect(() => {
     const getUser = async () => {
@@ -17,6 +17,7 @@ const EditProfile = ({}) => {
   }, [])
 
   const handleChange = (e) => {
+    const { id, type, files, value } = e.target
     setUser({
       ...user,
       [e.target.name]: e.target.value,
@@ -26,27 +27,24 @@ const EditProfile = ({}) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-    const response = await Client.put(`/profile/edit/${id}`, {
-      firstName: user.firstName,
-      lastName: user.lastName,
-      email: user.email,
-      mobileNumber: user.mobileNumber,
-      bio: user.bio,
-      image: user.image
-    })
+    const formData = new FormData()
+    formData.append("firstName", user.firstName)
+    formData.append("lastName", user.lastName)
+    formData.append("email", user.email)
+    formData.append("password", user.password)
+    formData.append("image", user.image)
+    formData.append("bio", user.bio)
+    formData.append("mobileNumber", user.mobileNumber)
+    const response = await Client.put(`/profile/edit/${id}`, formData)
     setUser(response.data)
-
+    console.log(user)
     navigate(`/profile/${id}`)
   }
   return user ? (
     <div>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="image">Image:</label>
-        <input
-          type="file"
-          name="image"
-          onChange={handleChange}
-        />
+        <label htmlFor="image">Upload Image:</label>
+        <input type="file" id="image" accept="image" onChange={handleChange} />
 
         <label htmlFor="firstName">First Name:</label>
         <input
