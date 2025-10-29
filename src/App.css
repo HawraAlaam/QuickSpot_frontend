@@ -423,3 +423,20 @@ nav a[onClick]:hover {
     background-color: #a8a8a8;
     cursor: not-allowed;
 }
+
+/* ==================================== */
+/* 8. PLACE DETAILS STYLES              */
+/* ==================================== */
+
+/* Main Details Container */
+.place-details {
+    width: 100%;
+    /* Max width similar to job form for good reading length */
+    max-width: 750px;
+    margin: 40px auto; /* Centers the container horizontally */
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    text-align: left;
+}
