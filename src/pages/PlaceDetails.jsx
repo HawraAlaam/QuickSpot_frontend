@@ -36,7 +36,9 @@ const PlaceDetails = ({ user }) => {
       date: place.date,
       from: place.from,
       to: place.to,
+      owner: user.id,
     })
+    await Client.delete(`/place/${id}`)
     navigate("/bookings")
   }
 

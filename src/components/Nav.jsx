@@ -4,10 +4,10 @@ const Nav = ({ user, handleLogOut }) => {
   if (user) {
     userOptions = (
       <>
-        <h3>Welcome {user.name}!</h3>
-
         <Link to={"/home"}> Home </Link>
         <Link to={"/jobList"}> Jobs </Link>
+        <Link to={"/placeList"}> Places </Link>
+        <Link to={"/Bookings"}> Bookings </Link>
         <Link to={`/profile/${user.id}`}> profile </Link>
 
         <Link onClick={handleLogOut} to="/">

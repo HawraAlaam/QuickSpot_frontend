@@ -9,7 +9,6 @@ const Profile = ({}) => {
 
   useEffect(() => {
     const getUser = async () => {
-      
       const response = await Client.get(`/profile/${id}`)
       setUser(response.data)
       console.log(response.data)
@@ -19,14 +18,13 @@ const Profile = ({}) => {
 
   return user ? (
     <div className="profile-container">
-<img src={`http://localhost:3000/${user.image}`} alt={user.firstName} />
+      <img src={`http://localhost:3000/${user.image}`} alt="" />
       <h4> {user.firstName} </h4>
       <h4>{user.lastName}</h4>
       <h4>{user.email} </h4>
       <h4>{user.mobileNumber} </h4>
       <h4>{user.bio} </h4>
       <h4></h4>
-
 
       <br />
       <Link to={`/profile/edit/${id}`}>
