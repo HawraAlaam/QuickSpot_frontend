@@ -3,7 +3,7 @@ import { useParams, useNavigate } from "react-router-dom"
 import { Link } from "react-router-dom"
 import Client from "../services/api"
 
-const PlaceDetails = () => {
+const PlaceDetails = ({ user }) => {
   const { id } = useParams()
   const [place, setPlaces] = useState(null)
   const navigate = useNavigate()
@@ -42,7 +42,7 @@ const PlaceDetails = () => {
 
   if (!place) return <p>Loading place details...</p>
 
-  return (
+  return user ? (
     <div className="place-details">
       <h2>{place.name}</h2>
       <p>
@@ -68,21 +68,26 @@ const PlaceDetails = () => {
         <img src={`http://localhost:3000/${image}`} alt="place" />
       ))}
 
-      {place.owner && (
-        <p>
-          <strong>Posted by:</strong> {place.owner.name || place.owner.email}
-        </p>
-      )}
+      <p>
+        <strong>Posted by:</strong>{" "}
+        <Link to={`/profile/${place.owner._id}`}>
+          {place.owner
+            ? place.owner.firstName + " " + place.owner.lastName
+            : "unknown"}
+        </Link>
+      </p>
 
       <Link to={"/home"}> Back </Link>
 
-      <button onClick={handleDelete} className="deletePlace">
-        Delete
-      </button>
+      {user.id === place.owner._id ? (
+        <button onClick={handleDelete} className="deletePlace">
+          Delete
+        </button>
+      ) : null}
 
       <button onClick={handleSubmit}>Book</button>
     </div>
-  )
+  ) : null
 }
 
 export default PlaceDetails
