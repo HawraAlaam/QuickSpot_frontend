@@ -18,13 +18,14 @@ const Profile = ({}) => {
 
   return user ? (
     <div className="profile-container">
-      <h4>First Name: {user.firstName} </h4>
-      <h4>Last Name: {user.lastName}</h4>
-      <h4>Email: {user.email} </h4>
-      <h4>Mobile: {user.mobileNumber} </h4>
-      <h4>Bio: {user.bio} </h4>
-      <h4>images:</h4>
-      <img src={`http://localhost:3000/${user.image}`} alt={user.firstName} />
+<img src={`http://localhost:3000/${user.image}`} alt={user.firstName} />
+      <h4> {user.firstName} </h4>
+      <h4>{user.lastName}</h4>
+      <h4>{user.email} </h4>
+      <h4>{user.mobileNumber} </h4>
+      <h4>{user.bio} </h4>
+      <h4></h4>
+
 
       <br />
       <Link to={`/profile/edit/${id}`}>

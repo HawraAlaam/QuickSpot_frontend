@@ -661,4 +661,199 @@ nav a[onClick]:hover {
 .placeFormContainer button[type="submit"]:hover {
   background-color: #08282d; /* Slightly darker shade on hover */
 }
-  
+
+/* ==================================== */
+/* 9. JOB DETAILS STYLES                */
+/* ==================================== */
+
+/* Main Details Container */
+.job-details {
+    width: 100%;
+    /* Max width similar to place details for good reading length */
+    max-width: 750px;
+    margin: 40px auto; /* Centers the container horizontally */
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    text-align: left;
+}
+
+/* Job Title */
+.job-details h2 {
+    font-size: 2.5em;
+    color: #0C363C;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 15px;
+}
+
+/* Detail Paragraphs */
+.job-details p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 12px;
+    color: #333;
+}
+
+.job-details p strong {
+    color: #0C363C;
+    font-weight: bold;
+    display: inline-block;
+    min-width: 100px; /* Aligns the data values */
+}
+
+/* Description Textarea/Paragraph */
+.job-details p:last-of-type { /* Targeting the Description paragraph */
+    padding-top: 15px;
+    margin-top: 20px;
+    border-top: 1px solid #f0f0f0;
+    margin-bottom: 25px; /* Added space before buttons */
+}
+
+/* --- Action Buttons and Links --- */
+.job-details > button,
+.job-details > a {
+    /* Base style for all action buttons and main links */
+    display: inline-block;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1em;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s, opacity 0.2s;
+    margin-right: 15px; /* Space between buttons */
+    margin-top: 15px;
+    border: none;
+}
+
+/* Apply Button */
+.job-details button:last-of-type { /* Targeting the Apply button */
+    background-color: #0C363C;
+    color: white;
+}
+
+.job-details button:last-of-type:hover {
+    background-color: #08282d;
+}
+
+/* Delete Button */
+.job-details .deletejob {
+    background-color: #e84a4a; /* Red color for destructive action */
+    color: white;
+}
+
+.job-details .deletejob:hover {
+    background-color: #c73737;
+}
+
+/* Back Link */
+.job-details a[href="/home"] { /* Targeting the "Back" link */
+    background-color: #f0f0f0;
+    color: #333;
+    border: 1px solid #ccc;
+}
+
+.job-details a[href="/home"]:hover {
+    background-color: #e0e0e0;
+}
+
+/* ==================================== */
+/* 10. USER PROFILE STYLES (FINAL & CORRECTED) */
+/* ==================================== */
+
+/* Main Profile Container */
+.profile-container {
+    width: 100%;
+    max-width: 650px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    text-align: center;
+}
+
+/* Profile Image (Now the first element) */
+.profile-container img {
+    /* Make sure the image is visually distinct and centered */
+    width: 180px;
+    height: 180px;
+    border-radius: 50%; /* Circular profile picture */
+    object-fit: cover;
+    margin: 0 auto 35px auto; /* Add space below image */
+    border: 4px solid #0C363C; /* Accent color border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: block; /* Ensures it centers with margin: auto */
+}
+
+/* User Info Headings (h4) */
+.profile-container h4 {
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin: 10px 0;
+    color: #333;
+    text-align: left;
+    display: flex; /* Use flex to align label and value */
+    padding-left: 20px;
+}
+
+/* Base style for the injected label (Before the h4 content) */
+/* Selector indices are offset by 1 because the image is the 1st element */
+.profile-container h4::before {
+    content: ""; /* Will be overridden by specific content below */
+    font-weight: bold;
+    color: #0C363C;
+    /* Use a fixed width to align the start of the data values */
+    min-width: 120px;
+    margin-right: 5px;
+}
+
+/* Specific Labels using :nth-child to target the correct h4 */
+/* h4:nth-child(2) -> user.firstName */
+.profile-container h4:nth-child(2)::before { content: "First Name:"; }
+/* h4:nth-child(3) -> user.lastName */
+.profile-container h4:nth-child(3)::before { content: "Last Name:"; }
+/* h4:nth-child(4) -> user.email */
+.profile-container h4:nth-child(4)::before { content: "Email:"; }
+/* h4:nth-child(5) -> user.mobileNumber */
+.profile-container h4:nth-child(5)::before { content: "Mobile:"; }
+/* h4:nth-child(6) -> user.bio */
+.profile-container h4:nth-child(6)::before { content: "Bio:"; }
+
+
+/* Bio Styling (h4:nth-child(6)) */
+.profile-container h4:nth-child(6) {
+    padding-top: 15px;
+    margin-top: 25px;
+    border-top: 1px dashed #ccc;
+    display: block;
+}
+
+/* The empty h4 at the end (h4:nth-child(7)) - Hide it unless you need it */
+.profile-container h4:nth-child(7) {
+    display: none;
+}
+
+
+/* Edit Profile Button - (Assuming the button follows the h4 elements) */
+.profile-container button {
+    display: inline-block;
+    padding: 12px 25px;
+    margin-top: 30px;
+    background-color: #0C363C;
+    color: white;
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.profile-container button:hover {
+    background-color: #08282d;
+}
