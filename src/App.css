@@ -983,3 +983,171 @@ nav a[onClick]:hover {
 .profile-container button:hover {
     background-color: #08282d;
 }
+
+/* ======================================================= */
+/* 6. HOME PAGE JOB/PLACE GRIDS STYLES                     */
+/* ======================================================= */
+
+/* Main Home Container */
+.home-container {
+    width: 100%;
+    /* Max width prevents content from stretching too wide on large screens */
+    max-width: 1200px;
+    margin: 40px auto; /* Centers the container horizontally and adds vertical space */
+    padding: 0 20px;
+    text-align: center;
+}
+
+/* Section Title (Latest Jobs, Latest Places) */
+.home-container h2 {
+    font-size: 2.2em;
+    color: #0c363c;
+    margin-top: 50px; /* Space between the two sections */
+    margin-bottom: 35px;
+    text-align: center;
+}
+
+/* Job Grid Layout & Place Grid Layout */
+.job-grid, .place-grid {
+    display: grid;
+    /* Create responsive columns: 4 columns on desktop, adapts to screen size */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px; /* Space between the cards */
+    margin-bottom: 40px;
+}
+
+/* --- CARD STYLING (Shared for Job and Place) --- */
+
+/* Individual Card Wrapper (Link) */
+.home-container a {
+    text-decoration: none; /* Remove underline from the Link component */
+    color: inherit; /* Inherit text color */
+}
+
+/* Individual Job/Place Card */
+.job-card, .place-card {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    /* Use a stronger shadow for separation and depth */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: left;
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    height: 100%; /* Ensures all cards in the grid row have the same height */
+}
+
+/* Hover Effect for Cards */
+.job-card:hover, .place-card:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+    border-color: #0c363c; /* Highlight border on hover */
+}
+
+/* Card Title (Job Title / Place Name) */
+.job-card h3, .place-card h3 {
+    font-size: 1.4em;
+    color: #0c363c; /* Dark accent color */
+    margin-top: 0;
+    margin-bottom: 12px;
+    line-height: 1.2;
+    /* Ensure title doesn't overflow */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Card Details (Date, Time, Salary/Price) */
+.job-card h4, .place-card h4 {
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+/* Highlight the Time range and Salary/Price */
+.job-card h4:nth-child(3),
+.place-card h4:nth-child(3),
+.job-card h4:last-child,
+.place-card h4:last-child {
+    font-weight: bold;
+    color: #444;
+}
+
+.job-card h4:last-child,
+.place-card h4:last-child {
+    /* Separate price/salary from other details */
+    margin-top: 10px;
+    color: #e84a4a; /* A noticeable color for the financial figure */
+}
+
+/* --- BUTTONS / LINKS AT THE BOTTOM --- */
+
+/* See More Jobs Button Styling */
+.more-btn {
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.more-btn a {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #0c363c;
+    color: white;
+    font-size: 1.1em;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.more-btn a:hover {
+    background-color: #08282d;
+}
+
+/* Add Place Link Styling */
+.home-container > div:last-child {
+    margin-bottom: 50px;
+}
+
+.home-container > div:last-child a {
+    color: #777c90; /* Gray link color */
+    text-decoration: underline;
+    font-size: 1em;
+    transition: color 0.2s;
+}
+
+.home-container > div:last-child a:hover {
+    color: #0c363c;
+    text-decoration: none;
+}
+
+/* ---------------------------------- */
+/* 🌟 MEDIA QUERY: MOBILE DEVICES (MAX 768px) */
+/* ---------------------------------- */
+@media (max-width: 768px) {
+    .home-container {
+        padding: 0 15px;
+    }
+
+    .home-container h2 {
+        font-size: 1.8em;
+        margin-top: 30px;
+        margin-bottom: 25px;
+    }
+
+    /* Stack the grids into a single column on mobile */
+    .job-grid, .place-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        margin-bottom: 30px;
+    }
+
+    /* Center the button text for better mobile tap target */
+    .more-btn a {
+        width: 100%;
+        box-sizing: border-box;
+        text-align: center;
+    }
+}

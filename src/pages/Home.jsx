@@ -4,6 +4,7 @@ import Client from "../services/api"
 
 const Home = () => {
   const [jobs, setJobs] = useState([])
+  const [place, setPlace] = useState([])
 
   useEffect(() => {
     const getJobs = async () => {
@@ -17,9 +18,9 @@ const Home = () => {
     const getPlaces = async () => {
       try {
         const response = await Client.get("/place")
-        setJobs(response.data.slice(0, 8))
+        setPlace(response.data.slice(0, 8))
       } catch (error) {
-        console.error("Error fetching jobs:", error)
+        console.error("Error fetching places:", error)
       }
     }
     getPlaces()
@@ -45,6 +46,26 @@ const Home = () => {
         ) : (
           <p>No jobs available.</p>
         )}
+      </div>
+      <h2>Latest places</h2>
+      <div className="place-grid">
+        {place.length ? (
+          place.map((place) => (
+            <Link to={`/place/${place._id}`}>
+              <div key={place._id} className="place-card">
+                <h3>{place.name}</h3>
+                <h4>Date: {place.date}</h4>
+                <h4>
+                  From:{place.from} To:{place.to}
+                </h4>
+                <h4>Price: {place.price} BD</h4>
+              </div>
+            </Link>
+          ))
+        ) : (
+          <p>No places available.</p>
+        )}
+
       </div>
       <div className="more-btn">
         <Link to="/jobList">See More Jobs</Link>
