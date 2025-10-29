@@ -17,7 +17,7 @@ const Profile = ({}) => {
   }, [])
 
   return user ? (
-    <div>
+    <div className="profile-container">
       <h4>First Name: {user.firstName} </h4>
       <h4>Last Name: {user.lastName}</h4>
       <h4>Email: {user.email} </h4>
