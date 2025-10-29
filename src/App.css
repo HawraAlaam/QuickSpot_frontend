@@ -481,3 +481,14 @@ nav a[onClick]:hover {
     margin-bottom: 30px;
     justify-content: flex-start; /* Aligns images to the left */
 }
+
+.place-details img {
+    /* Style for individual images from the map function */
+    width: 100%; /* Default to full width of the container for better display */
+    max-width: 350px;
+    height: auto;
+    border-radius: 6px;
+    object-fit: cover;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
