@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom"
 import Client from "../services/api"
 
 const PlaceForm = ({ user }) => {
-  let navigate = useNavigate()
+  const navigate = useNavigate()
 
   const initialState = {
     name: "",
@@ -17,22 +17,17 @@ const PlaceForm = ({ user }) => {
   }
 
   const [formValues, setFormValues] = useState(initialState)
-  const [place, setPlace] = useState(null)
 
   const handleChange = (e) => {
     const { id, type, files, value } = e.target
     setFormValues({
       ...formValues,
-      [e.target.name]: e.target.value,
-      [id]: type === "file" ? files : value,
+      [e.target.name]: type === "file" ? files : value,
     })
   }
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-    //set item
-    localStorage.setItem("imageUpload", "true")
-
     const formData = new FormData()
     formData.append("owner", user.id)
     formData.append("name", formValues.name)
@@ -43,29 +38,27 @@ const PlaceForm = ({ user }) => {
     formData.append("description", formValues.description)
     formData.append("location", formValues.location)
 
-    for (let i = 0; i < formValues.images.length; i++) {
-      formData.append("images", formValues.images[i])
+    if (formValues.images) {
+      Array.from(formValues.images).forEach((file) =>
+        formData.append("images", file)
+      )
     }
-    //clear item
+
     const response = await Client.post("/place", formData)
-    setPlace(response.data)
     setFormValues(initialState)
     navigate(`/place/${response.data._id}`)
-    localStorage.removeItem("imageUpload")
   }
 
   return user ? (
-    <div className="placeFormContainer">
-      <h2>Post place</h2>
+    <div className="placeFormContainer flex justify-center mt-10">
+      <form
+        onSubmit={handleSubmit}
+        className="w-full max-w-md bg-white p-6 rounded-lg shadow-md space-y-4"
+      >
+        <h2 className="text-2xl font-bold text-center mb-4">Post a Place</h2>
 
-      <form onSubmit={handleSubmit}>
-        <input
-          type="hidden"
-          name="owner"
-          value={user.id}
-          onChange={handleChange}
-        />
-        <label htmlFor="name">Title</label>
+        <input type="hidden" name="owner" value={user.id} />
+
         <input
           type="text"
           name="name"
@@ -73,74 +66,81 @@ const PlaceForm = ({ user }) => {
           onChange={handleChange}
           placeholder="Place Title"
           required
+          className="w-full p-2 border rounded"
         />
 
-        <label htmlFor="price">Price</label>
         <input
           type="number"
           name="price"
           value={formValues.price}
           onChange={handleChange}
-          placeholder="Price (e.g., 50 NOTE: AMOUNT WILL BE IN BAHRAINI DINARS)"
+          placeholder="Price (BD)"
           required
+          className="w-full p-2 border rounded"
         />
 
-        <label htmlFor="date">Date</label>
         <input
           type="date"
           name="date"
           value={formValues.date}
           onChange={handleChange}
           required
+          className="w-full p-2 border rounded"
         />
 
-        <label htmlFor="timeFrom">Time</label>
-        <div className="timeInputGroup">
-          <span>From:</span>
+        <div className="flex space-x-2">
           <input
             type="time"
             name="from"
             value={formValues.from}
             onChange={handleChange}
             required
+            className="w-1/2 p-2 border rounded"
           />
-          <span>To:</span>
           <input
             type="time"
             name="to"
             value={formValues.to}
             onChange={handleChange}
             required
+            className="w-1/2 p-2 border rounded"
           />
         </div>
 
-        <label htmlFor="location">Location</label>
         <input
           type="text"
           name="location"
           value={formValues.location}
           onChange={handleChange}
-          placeholder="e.g., Manama"
+          placeholder="Location"
           required
+          className="w-full p-2 border rounded"
         />
 
-        <label htmlFor="description">Description</label>
         <textarea
           name="description"
           value={formValues.description}
           onChange={handleChange}
-          placeholder="Detailed place description..."
+          placeholder="Detailed description"
           required
+          className="w-full p-2 border rounded"
         />
-        <label htmlFor="images">Images</label>
+
         <input
           type="file"
-          id="images"
           name="images"
+          id="images"
           onChange={handleChange}
           multiple
+          className="w-full"
         />
-        <button type="submit">Post</button>
+
+        <button
+          type="submit"
+          className="w-full bg-[#0c363c] text-white py-2 rounded hover:bg-[#0a2b2e] transition"
+        >
+          Post
+        </button>
       </form>
     </div>
   ) : null
