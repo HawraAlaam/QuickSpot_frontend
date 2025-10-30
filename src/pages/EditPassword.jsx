@@ -4,8 +4,9 @@ import Client from "../services/api"
 
 const EditPassword = () => {
   const { id } = useParams()
-  const [user, setUser] = useState([])
-  let navigate = useNavigate()
+  const [user, setUser] = useState(null)
+  const navigate = useNavigate()
+
   const initialState = {
     oldPassword: "",
     newPassword: "",
@@ -15,49 +16,78 @@ const EditPassword = () => {
 
   useEffect(() => {
     const getUser = async () => {
-      const response = await Client.get(`/profile/${id}`)
-      setUser(response.data)
-      console.log(response.data)
+      try {
+        const response = await Client.get(`/profile/${id}`)
+        setUser(response.data)
+      } catch (error) {
+        console.error("Error fetching user:", error)
+      }
     }
     getUser()
   }, [id])
 
-  const handleChange = (event) => {
-    setFormValues({ ...formValues, [event.target.name]: event.target.value })
+  const handleChange = (e) => {
+    setFormValues({ ...formValues, [e.target.name]: e.target.value })
   }
-  const handleSubmit = async (event) => {
-    event.preventDefault()
-    const response = await Client.put(`auth/update/${id}`, {
-      newPassword: formValues.newPassword,
-      oldPassword: formValues.oldPassword,
-    })
-    setUser(response.data)
-    setFormValues(initialState)
-    navigate(`/profile/edit/${id}`)
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    try {
+      await Client.put(`/auth/update/${id}`, {
+        oldPassword: formValues.oldPassword,
+        newPassword: formValues.newPassword,
+      })
+      setFormValues(initialState)
+      navigate(`/profile/edit/${id}`)
+    } catch (error) {
+      console.error("Error updating password:", error)
+    }
   }
+
+  if (!user) return <p className="text-center py-10">Loading...</p>
 
   return (
-    <div className="password-form">
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="oldPassword">Old Password:</label>
-        <input
-          type="password"
-          name="oldPassword"
-          onChange={handleChange}
-          value={formValues.oldPassword}
-        />
+    <div className="flex justify-center items-center min-h-screen bg-gray-50 px-4">
+      <div className="w-full max-w-md bg-white p-6 rounded-2xl shadow-md border border-[#0c363c]">
+        <h2 className="text-2xl font-semibold text-[#0c363c] mb-4 text-center">
+          Change Password
+        </h2>
 
-        <label htmlFor="newPassword">New Password:</label>
-        <input
-          type="password"
-          name="newPassword"
-          onChange={handleChange}
-          value={formValues.newPassword}
-        />
+        <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
+          <label className="flex flex-col">
+            Old Password:
+            <input
+              type="password"
+              name="oldPassword"
+              value={formValues.oldPassword}
+              onChange={handleChange}
+              className="border rounded px-3 py-2 mt-1"
+              required
+            />
+          </label>
 
-        <button>Change</button>
-      </form>
+          <label className="flex flex-col">
+            New Password:
+            <input
+              type="password"
+              name="newPassword"
+              value={formValues.newPassword}
+              onChange={handleChange}
+              className="border rounded px-3 py-2 mt-1"
+              required
+            />
+          </label>
+
+          <button
+            type="submit"
+            className="bg-[#0c363c] text-white py-2 rounded-lg mt-2 hover:bg-[#09292d] transition-colors"
+          >
+            Change
+          </button>
+        </form>
+      </div>
     </div>
   )
 }
+
 export default EditPassword
