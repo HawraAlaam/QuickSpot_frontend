@@ -8,7 +8,7 @@ const Welcome = () => {
       <div className="mx-auto max-w-2xl px-4 text-center">
         {/* Hero Heading */}
         <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-gray-900 font-serif leading-snug">
-          Welcome to <span className="text-[#0c363c]">QuickSpot</span> — Bahrain’s
+          Welcome to <span className="text-[#0c363c]">QuickSpot</span> <br />Bahrain’s
           Go-To Platform for Fast, Flexible Opportunities
         </h1>
 

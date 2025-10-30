@@ -48,39 +48,44 @@ const JobDetails = ({ user }) => {
   }
 
   return (
-    <div className="flex justify-center py-6 px-4 min-h-screen bg-gray-50">
-      <div className="w-full max-w-lg bg-white p-6 rounded-2xl shadow-md border border-[#0c363c] space-y-3">
-        <h2 className="text-xl font-bold text-[#0c363c]">{job.title}</h2>
+    <div className="flex justify-center items-center bg-gray-50 min-h-screen py-6 px-4">
+      <div className="w-full max-w-lg bg-white p-6 rounded-2xl shadow-md border border-[#0c363c] flex flex-col justify-between min-h-[85vh]">
+        <div className="space-y-3">
+          <h2 className="text-2xl font-bold text-[#0c363c] mb-2 text-center">
+            {job.title}
+          </h2>
 
-        <p>
-          <strong>Date:</strong> {job.date}
-        </p>
-        <p>
-          <strong>Time:</strong> {job.from} - {job.to}
-        </p>
-        <p>
-          <strong>Salary:</strong> {job.salary} BD
-        </p>
-        <p>
-          <strong>Location:</strong> {job.location}
-        </p>
-        <p>
-          <strong>Description:</strong> {job.description}
-        </p>
+          <p>
+            <strong>Date:</strong> {job.date}
+          </p>
+          <p>
+            <strong>Time:</strong> {job.from} - {job.to}
+          </p>
+          <p>
+            <strong>Salary:</strong> {job.salary} BD
+          </p>
+          <p>
+            <strong>Location:</strong> {job.location}
+          </p>
+          <p>
+            <strong>Description:</strong> {job.description}
+          </p>
 
-        <p>
-          <strong>Posted by:</strong>{" "}
-          <Link
-            to={`/profile/${job.owner._id}`}
-            className="text-[#0c363c] hover:underline"
-          >
-            {job.owner
-              ? job.owner.firstName + " " + job.owner.lastName
-              : "Unknown"}
-          </Link>
-        </p>
+          <p>
+            <strong>Posted by:</strong>{" "}
+            <Link
+              to={`/profile/${job.owner._id}`}
+              className="text-[#0c363c] hover:underline"
+            >
+              {job.owner
+                ? job.owner.firstName + " " + job.owner.lastName
+                : "Unknown"}
+            </Link>
+          </p>
+        </div>
 
-        <div className="flex justify-between mt-4 space-x-2">
+        {/* Buttons fixed at bottom of the card */}
+        <div className="flex justify-between mt-6 space-x-3">
           <Link
             to="/home"
             className="flex-1 text-center py-2 bg-gray-200 rounded-lg hover:bg-gray-300 transition-colors"
@@ -110,4 +115,3 @@ const JobDetails = ({ user }) => {
 }
 
 export default JobDetails
-
